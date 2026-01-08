@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+body {
+  margin: 0;
+  background-color: #0f172a; /* slate-900 */
+  color: #e5e7eb;           /* gray-200 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
