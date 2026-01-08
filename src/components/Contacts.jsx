@@ -13,14 +13,14 @@ function Contact() {
 
       <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
         <a
-          href="mailto:dhiman@example.com"
+          href="mailto:dasguptadhiman5@gmail.com"
           className="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition text-center"
         >
           Email Me
         </a>
 
         <a
-          href="https://www.linkedin.com/in/dhimandasgupta"
+          href="https://www.linkedin.com/in/dhiman-dasgupta/"
           target="_blank"
           rel="noreferrer"
           className="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition text-center"
