@@ -1,20 +1,13 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Contact from "./components/Contacts";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ProjectDetail from "./pages/ProjectDetail";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/projects/:id" element={<ProjectDetail />} />
+    </Routes>
   );
 }
 

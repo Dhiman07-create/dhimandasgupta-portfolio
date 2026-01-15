@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Projects() {
   return (
     <section
@@ -25,6 +27,12 @@ function Projects() {
           >
             View on GitHub →
           </a>
+          <Link
+            to="/projects/flipkart-automation"
+            className="text-red-400 hover:text-red-500 transition"
+          >
+            View Details →
+        </Link>
         </div>
 
         {/* Project 2 */}
@@ -44,6 +52,12 @@ function Projects() {
           >
             View on GitHub →
           </a>
+          <Link
+            to="/projects/ecommerce-mobile-app-automation"
+            className="text-red-400 hover:text-red-500 transition"
+          >
+            View Details →
+        </Link>
         </div>
 
         {/* Project 3 */}
@@ -63,6 +77,12 @@ function Projects() {
           >
             View on GitHub →
           </a>
+          <Link
+            to="/projects/ecommerce-api-automation"
+            className="text-red-400 hover:text-red-500 transition"
+          >
+            View Details →
+        </Link>
         </div>
       </div>
     </section>
