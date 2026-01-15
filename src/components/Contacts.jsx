@@ -1,5 +1,8 @@
+import Reveal from "./Reveal";
+
 function Contact() {
   return (
+    <Reveal>
     <section
       id="contact"
       className="px-10 py-20 bg-gray-800 text-gray-100"
@@ -38,6 +41,7 @@ function Contact() {
         </a>
       </div>
     </section>
+    </Reveal>
   );
 }
 

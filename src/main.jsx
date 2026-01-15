@@ -13,3 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+if (localStorage.theme === "dark") {
+  document.documentElement.classList.add("dark");
+}

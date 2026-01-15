@@ -1,5 +1,8 @@
+import Reveal from "./Reveal";
+
 function About() {
   return (
+    <Reveal>
     <section
       id="about"
       className="px-10 py-20 bg-gray-900 text-gray-100"
@@ -9,6 +12,7 @@ function About() {
         Hello! I’m Dhiman Dasgupta, an aspiring Data Engineer and SDET with experience in automation testing, API validation, and cloud technologies. I’m passionate about building scalable automation frameworks, optimizing workflows, and learning cutting-edge technologies to solve real-world problems.
       </p>
     </section>
+    </Reveal>
   );
 }
 

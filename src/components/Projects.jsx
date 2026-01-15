@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import Reveal from "./Reveal";
 
 function Projects() {
   return (
+    <Reveal>
     <section
       id="projects"
       className="px-10 py-20 bg-gray-900 text-gray-100"
@@ -86,6 +88,7 @@ function Projects() {
         </div>
       </div>
     </section>
+    </Reveal>
   );
 }
 

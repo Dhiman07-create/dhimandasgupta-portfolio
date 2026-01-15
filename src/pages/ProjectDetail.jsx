@@ -1,9 +1,16 @@
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function ProjectDetail() {
   const { id } = useParams();
 
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
+    >
     <section className="px-10 py-20 bg-slate-900 text-gray-100">
       <h1 className="text-4xl font-bold mb-6">{id}</h1>
 
@@ -12,6 +19,7 @@ function ProjectDetail() {
         CI/CD setup, challenges, and learnings.
       </p>
     </section>
+    </motion.div>
   );
 }
 
