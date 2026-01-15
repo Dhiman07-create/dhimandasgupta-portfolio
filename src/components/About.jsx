@@ -5,7 +5,7 @@ function About() {
     <Reveal>
     <section
       id="about"
-      className="px-10 py-20 bg-gray-900 text-gray-100"
+      className="px-10 py-20 bg-gray-100 dark:bg-gray-900"
     >
       <h2 className="text-4xl font-bold mb-6">About Me</h2>
       <p className="text-lg md:text-xl leading-relaxed max-w-3xl">

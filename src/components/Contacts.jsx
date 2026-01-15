@@ -5,7 +5,7 @@ function Contact() {
     <Reveal>
     <section
       id="contact"
-      className="px-10 py-20 bg-gray-800 text-gray-100"
+      className="px-10 py-20 bg-gray-200 dark:bg-gray-800"
     >
       <h2 className="text-4xl font-bold mb-8">Contact Me</h2>
 
@@ -26,7 +26,7 @@ function Contact() {
           href="https://www.linkedin.com/in/dhiman-dasgupta/"
           target="_blank"
           rel="noreferrer"
-          className="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition text-center"
+          className="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-white border border-slate-600 rounded-md hover:bg-white dark:hover:bg-gray-600 transition text-center"
         >
           LinkedIn
         </a>
@@ -35,7 +35,7 @@ function Contact() {
           href="https://github.com/Dhiman07-create"
           target="_blank"
           rel="noreferrer"
-          className="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition text-center"
+          className="px-6 py-3 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-white border border-slate-600 rounded-md hover:bg-white dark:hover:bg-gray-600 transition text-center"
         >
           GitHub
         </a>

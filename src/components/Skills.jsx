@@ -5,7 +5,7 @@ function Skills() {
     <Reveal>
     <section
       id="skills"
-      className="px-10 py-20 bg-gray-800 text-gray-100"
+      className="px-10 py-20 bg-gray-200 dark:bg-gray-800"
     >
       <h2 className="text-4xl font-bold mb-10">Skills</h2>
 

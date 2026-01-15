@@ -11,7 +11,7 @@ function ProjectDetail() {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
     >
-    <section className="px-10 py-20 bg-slate-900 text-gray-100">
+    <section className="px-10 py-20 bg-slate-100 dark:bg-slate-900">
       <h1 className="text-4xl font-bold mb-6">{id}</h1>
 
       <p className="max-w-3xl text-lg leading-relaxed">

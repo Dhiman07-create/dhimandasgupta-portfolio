@@ -4,7 +4,8 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex flex-col justify-center items-start h-screen px-10 bg-slate-900 text-gray-100"
+      className="relative flex flex-col justify-center items-start h-screen px-10 bg-slate-100 dark:bg-slate-900
+    transition-colors duration-300"
     >
       {/* Name */}
       <motion.h1
@@ -21,7 +22,7 @@ function Hero() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, duration: 0.6 }}
-        className="text-xl md:text-2xl mb-8 text-gray-300"
+        className="text-xl md:text-2xl mb-8 text-slate-600 dark:text-gray-300"
       >
         Aspiring Data Engineer | SDET | Automation & Cloud Enthusiast
       </motion.p>
@@ -67,10 +68,11 @@ function Hero() {
             px-7 py-3
             rounded-lg font-medium
             border border-slate-600
-            text-gray-200
+            text-slate-600 dark:text-gray-200
             transition-all duration-300
             hover:border-blue-400
             hover:text-blue-400
+            dark:hover:text-blue-400
             hover:shadow-[0_0_12px_rgba(96,165,250,0.35)]
           "
         >
@@ -100,7 +102,7 @@ function ScrollIndicator() {
           duration: 1.5,
           ease: "easeInOut",
         }}
-        className="text-gray-400 text-2xl"
+        className="text-xl md:text-2xl mb-8 text-slate-600 dark:text-gray-300"
       >
         ↓
       </motion.div>

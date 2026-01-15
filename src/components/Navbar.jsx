@@ -15,13 +15,18 @@ function Navbar() {
   };
 
   return (
-    <nav className="flex items-center justify-between px-10 py-4 blue-500sticky top-0 z-50
-  flex items-center justify-between
-  px-10 py-4
-  bg-white/70 dark:bg-slate-900/70
-  backdrop-blur-md
-  border-b border-slate-200 dark:border-slate-700
-  transition-all duration-300 dark:bg-slate-900 text-gray-100 border-b border-slate-700 sticky top-0 z-50">
+    <nav
+      className="
+        sticky top-0 z-50
+        flex items-center justify-between
+        px-10 py-4
+        bg-white/70 dark:bg-slate-900/70
+        backdrop-blur-md
+        border-b border-slate-200 dark:border-slate-700
+        text-gray-900 dark:text-gray-100
+        transition-all duration-300
+      "
+    >
       <span className="text-lg font-semibold">Dhiman Dasgupta</span>
 
       <div className="flex items-center space-x-6 text-sm">
