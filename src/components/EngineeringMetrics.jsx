@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Github } from "lucide-react";
 
+const API_URL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:5000"
+    : "https://dhimandasgupta-portfolio.onrender.com";
+
 function AnimatedNumber({ value, suffix = "" }) {
   const [display, setDisplay] = useState(0);
 
@@ -36,10 +41,12 @@ function EngineeringMetrics() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/engineering-metrics")
+    fetch(`${API_URL}/api/engineering-metrics`)
       .then(res => res.json())
       .then(setData)
-      .catch(console.error);
+      .catch(err => {
+        console.error("Metrics fetch failed:", err);
+      });
   }, []);
 
   const isCiPassing = ["success", "passing", "passed"].includes(

@@ -87,7 +87,14 @@ def calculate_metrics():
 # -------------------- LOAD TO POSTGRES --------------------
 
 def upsert_metrics(metrics):
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = psycopg2.connect(
+    host="dpg-d5l850coud1c7383v9cg-a.oregon-postgres.render.com",
+    database="portfolio_db_fvg9",
+    user="auto",
+    password=os.getenv("RENDER_DB_PASSWORD"),
+    port=5432,
+    sslmode="require"
+)
     cursor = conn.cursor()
 
     query = """
