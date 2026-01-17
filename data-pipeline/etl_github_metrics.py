@@ -8,13 +8,19 @@ load_dotenv()
 
 # -------------------- LANGUAGE WEIGHTING --------------------
 
-IGNORED_LANGUAGES = {"HTML", "CSS", "Markdown"}
-PREFERRED_LANGUAGES = {"Java", "JavaScript", "Python"}
+IGNORED_LANGUAGES = {
+    "HTML",
+    "CSS",
+    "Markdown"
+}
 
-# -------------------- CI FILTERING --------------------
+PREFERRED_LANGUAGES = {
+    "Java",
+    "JavaScript",
+    "Python"
+}
 
-CI_WORKFLOW_NAME = "CI"          # 👈 your real CI workflow
-EXCLUDED_WORKFLOWS = {"ETL"}     # 👈 ignore self-triggered workflows
+EXCLUDED_CI_KEYWORDS = {"etl", "metrics"}
 
 # -------------------- CONFIG --------------------
 
@@ -37,6 +43,7 @@ def get_repositories():
     res.raise_for_status()
     return res.json()
 
+
 def get_commits_last_30_days(repo_name):
     url = f"https://api.github.com/repos/{GITHUB_USERNAME}/{repo_name}/commits"
     params = {"since": SINCE_30_DAYS}
@@ -44,50 +51,41 @@ def get_commits_last_30_days(repo_name):
     res.raise_for_status()
     return len(res.json())
 
+
 def get_languages(repo_name):
     url = f"https://api.github.com/repos/{GITHUB_USERNAME}/{repo_name}/languages"
     res = requests.get(url, headers=HEADERS)
     res.raise_for_status()
     return res.json()
 
-def get_ci_runs(repo_name, per_page=50):
+
+def get_ci_runs(repo_name, per_page=20):
     url = f"https://api.github.com/repos/{GITHUB_USERNAME}/{repo_name}/actions/runs"
     params = {"per_page": per_page}
     res = requests.get(url, headers=HEADERS, params=params)
 
+    # Repo may not have Actions enabled
     if res.status_code == 404:
         return []
 
     res.raise_for_status()
-    runs = res.json().get("workflow_runs", [])
+    return res.json().get("workflow_runs", [])
 
-    filtered = []
+    for run in runs:
+        print(f"[DEBUG] Repo={repo_name}, Workflow={run.get('name')}, Status={run.get('conclusion')}")
+
+# -------------------- CI METRICS --------------------
+
+def calculate_avg_ci_duration(repo_name):
+    runs = get_ci_runs(repo_name, per_page=50)
+    durations = []
 
     for run in runs:
         if run.get("status") != "completed":
             continue
 
-        workflow_name = run.get("name")
-
-        if workflow_name in EXCLUDED_WORKFLOWS:
-            continue
-
-        if workflow_name != CI_WORKFLOW_NAME:
-            continue
-
-        filtered.append(run)
-
-    return filtered
-
-# -------------------- CI METRICS --------------------
-
-def calculate_avg_ci_duration(repo_name):
-    runs = get_ci_runs(repo_name)
-    durations = []
-
-    for run in runs:
         created_at = run.get("created_at")
-        updated_at = run.get("updated_at")
+        updated_at = run.get("updated_at")  # ✅ more reliable than completed_at
 
         if not created_at or not updated_at:
             continue
@@ -100,13 +98,12 @@ def calculate_avg_ci_duration(repo_name):
 
         duration_sec = (updated - created).total_seconds()
 
-        # realistic CI window: 30s → 2h
-        if 30 < duration_sec < 7200:
+        if 30 < duration_sec < 7200:  # ignore junk (<30s or >2h)
             durations.append(duration_sec)
 
     if not durations:
-        return 0
-
+        return 0  # 👈 IMPORTANT: return 0, not None
+        
     return sum(durations) / len(durations)
 
 # -------------------- METRIC CALCULATION --------------------
@@ -132,55 +129,75 @@ def calculate_metrics():
             total_commits += commits
 
         # ---- Languages ----
-        for lang, bytes_count in get_languages(repo_name).items():
+        languages = get_languages(repo_name)
+        for lang, bytes_count in languages.items():
             language_usage[lang] = language_usage.get(lang, 0) + bytes_count
 
-        # ---- Avg CI duration ----
+        # ---- CI ----
         avg_repo_ci = calculate_avg_ci_duration(repo_name)
         if avg_repo_ci > 0:
             ci_durations.append(avg_repo_ci)
 
-        # ---- Last CI status ----
-        runs = get_ci_runs(repo_name, per_page=1)
-        if runs:
-            run = runs[0]
-            created_at = run.get("created_at")
 
-            if created_at:
-                run_time = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
-                if not last_ci_run_time or run_time > last_ci_run_time:
-                    last_ci_run_time = run_time
-                    last_ci_status = run.get("conclusion", "unknown").capitalize()
+        runs = get_ci_runs(repo_name, per_page=50)
+
+        for run in runs:
+            name = (run.get("name") or "").lower()
+
+            # ⛔ Skip ETL / metrics workflows
+            if any(k in name for k in EXCLUDED_CI_KEYWORDS):
+                continue
+
+            # Only completed CI runs
+            if run.get("status") != "completed":
+                continue
+
+            created_at = run.get("created_at")
+            conclusion = run.get("conclusion")
+
+            if not created_at or not conclusion:
+                continue
+
+            run_time = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+
+            if not last_ci_run_time or run_time > last_ci_run_time:
+                last_ci_run_time = run_time
+                last_ci_status = conclusion.capitalize()
+
+            break  # ✅ we only need the latest valid CI run
 
     # -------------------- TOP LANGUAGE --------------------
 
     filtered_languages = {
-        lang: bytes
-        for lang, bytes in language_usage.items()
+        lang: bytes_count
+        for lang, bytes_count in language_usage.items()
         if lang not in IGNORED_LANGUAGES
     }
 
-    preferred = {
-        lang: bytes
-        for lang, bytes in filtered_languages.items()
+    preferred_langs = {
+        lang: bytes_count
+        for lang, bytes_count in filtered_languages.items()
         if lang in PREFERRED_LANGUAGES
     }
 
-    if preferred:
-        top_language = max(preferred, key=preferred.get)
+    if preferred_langs:
+        top_language = max(preferred_langs, key=preferred_langs.get)
     elif filtered_languages:
         top_language = max(filtered_languages, key=filtered_languages.get)
     else:
         top_language = "N/A"
 
-    avg_ci_duration_sec = int(sum(ci_durations) / len(ci_durations)) if ci_durations else 0
+    avg_ci_duration_sec = (
+        int(sum(ci_durations) / len(ci_durations))
+        if ci_durations else 0
+    )
 
     return {
         "snapshot_date": TODAY,
         "commits_30d": total_commits,
         "active_repos": active_repos,
         "top_language": top_language,
-        "last_ci_status": last_ci_status,
+        "last_ci_status": last_ci_status.capitalize(),
         "avg_ci_duration_sec": avg_ci_duration_sec,
         "last_ci_run": last_ci_run_time or datetime.utcnow()
     }
