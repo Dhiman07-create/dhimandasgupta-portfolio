@@ -33,6 +33,4 @@ app.get("/api/engineering-metrics", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`API running on ${PORT}`));
-
+export default app;
