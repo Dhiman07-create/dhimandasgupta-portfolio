@@ -41,14 +41,6 @@ function About() {
               solve real-world problems.
             </p>
           </div>
-
-          {/* Side Metrics Card */}
-          <div className="lg:col-span-1 flex items-start">
-            <div className="w-full max-w-sm">
-              <EngineeringMetrics className="hover:shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-shadow duration-300" />
-            </div>
-          </div>
-
         </div>
       </section>
     </Reveal>
