@@ -13,35 +13,11 @@ function Hero() {
       "
     >
       {/* Subtle background pattern */}
-      {/* Background image */}
       <div
         className="
           absolute inset-0
-          bg-[url('/hero-bg.jpg')]
           bg-cover bg-center
-          opacity-25
-          blur-[1px]
-          dark:opacity-30
-        "
-      />
-
-      {/* Light mode overlay */}
-      <div
-        className="
-          absolute inset-0
-          bg-gradient-to-br
-          from-white/85 via-white/75 to-white/90
-          dark:hidden
-        "
-      />
-
-      {/* Dark mode overlay */}
-      <div
-        className="
-          absolute inset-0
-          hidden dark:block
-          bg-gradient-to-br
-          from-slate-950/90 via-slate-900/85 to-slate-950/95
+          opacity-20
         "
       />
 
