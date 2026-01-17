@@ -80,7 +80,12 @@ Please change the parent <Route path="${Y}"> to <Route path="${Y==="/"?"*":`${Y}
                 hover:text-blue-400
                 dark:hover:text-blue-400
                 hover:shadow-[0_0_12px_rgba(96,165,250,0.35)]
-              `,children:"Get in Touch"})]})]}),w.jsx($n.div,{initial:{opacity:0,x:24},animate:{opacity:1,x:0},transition:{delay:.5,duration:.6},className:"hidden lg:flex justify-end",children:w.jsxs("div",{className:"max-w-sm",children:[w.jsx(bD,{variant:"compact"}),w.jsx("p",{className:"mt-2 text-xs text-slate-500 text-center",children:"Live engineering metrics · auto-updated"})]})})]}),w.jsx(xD,{})]})}function xD(){return w.jsx($n.div,{initial:{opacity:0},animate:{opacity:1},transition:{delay:1.2},className:"absolute bottom-6 left-1/2 -translate-x-1/2 z-10",children:w.jsx($n.div,{animate:{y:[0,12,0]},transition:{repeat:1/0,duration:1.5,ease:"easeInOut"},className:"text-xl md:text-2xl text-slate-600 dark:text-gray-300",children:"↓"})})}function Ru({children:a}){return w.jsx($n.div,{initial:{opacity:0,y:40},whileInView:{opacity:1,y:0},transition:{duration:.6,ease:"easeOut"},viewport:{once:!0},children:a})}function TD(){return w.jsx(Ru,{children:w.jsx("section",{id:"about",className:`
+              `,children:"Get in Touch"})]})]}),w.jsx($n.div,{initial:{opacity:0,x:24},animate:{opacity:1,x:0},transition:{delay:.5,duration:.6},className:`
+            flex justify-center
+            mt-10
+            lg:mt-0
+            lg:justify-end
+          `,children:w.jsxs("div",{className:"max-w-sm",children:[w.jsx(bD,{variant:"compact"}),w.jsx("p",{className:"mt-2 text-xs text-slate-500 text-center",children:"Live engineering metrics · auto-updated"})]})})]}),w.jsx(xD,{})]})}function xD(){return w.jsx($n.div,{initial:{opacity:0},animate:{opacity:1},transition:{delay:1.2},className:"absolute bottom-6 left-1/2 -translate-x-1/2 z-10",children:w.jsx($n.div,{animate:{y:[0,12,0]},transition:{repeat:1/0,duration:1.5,ease:"easeInOut"},className:"text-xl md:text-2xl text-slate-600 dark:text-gray-300",children:"↓"})})}function Ru({children:a}){return w.jsx($n.div,{initial:{opacity:0,y:40},whileInView:{opacity:1,y:0},transition:{duration:.6,ease:"easeOut"},viewport:{once:!0},children:a})}function TD(){return w.jsx(Ru,{children:w.jsx("section",{id:"about",className:`
           px-10 py-20
           bg-gray-100 dark:bg-gray-900
           transition-colors duration-300
