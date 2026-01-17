@@ -190,13 +190,13 @@ def calculate_metrics():
 
 def upsert_metrics(metrics):
     conn = psycopg2.connect(
-        host="dpg-d5l850coud1c7383v9cg-a.oregon-postgres.render.com",
-        database="portfolio_db_fvg9",
-        user="auto",
-        password=os.getenv("RENDER_DB_PASSWORD"),
-        port=5432,
-        sslmode="require"
+        host=os.getenv("SUPABASE_DB_HOST"),
+        database=os.getenv("SUPABASE_DB_NAME"),
+        user=os.getenv("SUPABASE_DB_USER"),
+        password=os.getenv("SUPABASE_DB_PASSWORD"),
+        port=os.getenv("SUPABASE_DB_PORT")
     )
+
     cursor = conn.cursor()
 
     query = """
