@@ -102,8 +102,13 @@ function Hero() {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="hidden lg:flex justify-end"
-        >
+          className="
+            flex justify-center
+            mt-10
+            lg:mt-0
+            lg:justify-end
+          "
+          >
           <div className="max-w-sm">
             <EngineeringMetrics variant="compact" />
             <p className="mt-2 text-xs text-slate-500 text-center">
