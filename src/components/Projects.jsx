@@ -15,8 +15,8 @@ function Projects() {
         <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
           <h4 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">🛒 Flipkart E-commerce Automation</h4>
           <p className="mb-3 text-slate-600 dark:text-white">
-            End-to-end automation framework for Flipkart covering UI, API,
-            and regression scenarios using Selenium, REST Assured, and TestNG.
+            End-to-end automation framework for Flipkart covering UI, and regression scenarios 
+            using Selenide and TestNG.
           </p>
           <p className="mb-3 text-slate-600 dark:text-white">
             Integrated CI/CD using GitHub Actions with scheduled runs and detailed test reporting.
@@ -40,7 +40,7 @@ function Projects() {
         </div>
 
         {/* Project 2 */}
-        <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+        {/* <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
           <h4 className="text-2xl font-semibold mb-3 text-slate-600 dark:text-white">📱 Mobile Automation Testing (Android)</h4>
           <p className="mb-3 text-slate-600 dark:text-white">
             Automated Android app flows using Appium, Selenium, and Java including login, field assignments, image uploads, and estimate validation.
@@ -64,13 +64,13 @@ function Projects() {
             View Details →
         </Link>
         </div>
-        </div>
+        </div> */}
 
         {/* Project 3 */}
         <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-          <h4 className="text-2xl font-semibold mb-3 text-slate-600 dark:text-white">⚙️ API Automation & DB Validation</h4>
+          <h4 className="text-2xl font-semibold mb-3 text-slate-600 dark:text-white">⚙️ E-commerce API Automation</h4>
           <p className="mb-3 text-slate-600 dark:text-white">
-            API automation suite built using REST Assured with request/response validation, schema checks, and database verification using PostgreSQL.
+            API automation suite built using REST Assured with request/response validation, schema checks.
           </p>
           <p className="mb-3 text-slate-600 dark:text-white">
             Focused on data consistency, backend validation, and reusable test utilities.
