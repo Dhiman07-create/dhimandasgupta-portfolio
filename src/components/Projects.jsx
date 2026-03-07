@@ -14,12 +14,12 @@ function Projects() {
 
         {/* Project 1 */}
         <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-          <h4 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">🛒 Flipkart E-commerce Automation</h4>
+          <h4 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">🎭 Playwright Automation Framework</h4>
           <p className="mb-3 text-slate-600 dark:text-white">
-            Playwright Automation Framework | CI/CD | Allure Reporting
+            robust automation framework using Playwright and TypeScript for UI and API testing
           </p>
           <p className="mb-3 text-slate-600 dark:text-white">
-            Developed a robust automation framework using Playwright and TypeScript for UI and API testing.
+            Built a scalable end-to-end automation framework using Playwright with TypeScript, designed to support both UI and API testing.
           </p>
           <div className="flex items-center justify-between mt-4">
           <a
