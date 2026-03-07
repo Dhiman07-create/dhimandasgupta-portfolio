@@ -11,7 +11,35 @@ function Projects() {
       <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
       <div className="grid md:grid-cols-2 gap-10 max-w-5xl">
+
         {/* Project 1 */}
+        <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+          <h4 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">🛒 Flipkart E-commerce Automation</h4>
+          <p className="mb-3 text-slate-600 dark:text-white">
+            Playwright Automation Framework | CI/CD | Allure Reporting
+          </p>
+          <p className="mb-3 text-slate-600 dark:text-white">
+            Developed a robust automation framework using Playwright and TypeScript for UI and API testing.
+          </p>
+          <div className="flex items-center justify-between mt-4">
+          <a
+            href="https://github.com/Dhiman07-create/playwright-e2e-framework"
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-400 hover:text-blue-500 transition"
+          >
+            View on GitHub →
+          </a>
+          <Link
+            to="/projects/playwright-automation"
+            className="text-red-400 hover:text-red-500 transition"
+          >
+            View Details →
+        </Link>
+        </div>
+        </div>
+
+        {/* Project 2 */}
         <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
           <h4 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">🛒 Flipkart E-commerce Automation</h4>
           <p className="mb-3 text-slate-600 dark:text-white">
@@ -39,7 +67,7 @@ function Projects() {
         </div>
         </div>
 
-        {/* Project 2 */}
+        {/* Project 3 */}
         {/* <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
           <h4 className="text-2xl font-semibold mb-3 text-slate-600 dark:text-white">📱 Mobile Automation Testing (Android)</h4>
           <p className="mb-3 text-slate-600 dark:text-white">
@@ -66,7 +94,7 @@ function Projects() {
         </div>
         </div> */}
 
-        {/* Project 3 */}
+        {/* Project 4 */}
         <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
           <h4 className="text-2xl font-semibold mb-3 text-slate-600 dark:text-white">⚙️ E-commerce API Automation</h4>
           <p className="mb-3 text-slate-600 dark:text-white">
