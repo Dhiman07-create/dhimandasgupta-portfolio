@@ -12,12 +12,12 @@ function Skills() {
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
         <div>
           <h4 className="text-xl font-semibold mb-2">Test Automation</h4>
-          <p>Selenium, Appium, REST Assured, Selenide, TestNG, JUnit, Postman</p>
+          <p>Playwright, Selenium, Appium, REST Assured, Selenide, TestNG</p>
         </div>
 
         <div>
           <h4 className="text-xl font-semibold mb-2">Programming & Scripting</h4>
-          <p>Java, JavaScript, SQL</p>
+          <p>Java, TypeScript, C++, SQL</p>
         </div>
 
         <div>
