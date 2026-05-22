@@ -3,7 +3,7 @@ name: Run Engineering Metrics ETL
 # Trigger every 6 hours and also allow manual trigger
 on:
   schedule:
-    - cron: '0 */5 * * *'  # Every 6 hours at minute 0
+    - cron: '0 */6 * * *'  # Every 6 hours at minute 0
   workflow_dispatch:       # Manual trigger option
 
 jobs:
