@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import PlaywrightProject from "./pages/projects/PlaywrightProject";
+import FlipkartAutomationProject from "./pages/projects/FlipkartAutomationProject";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -34,6 +35,11 @@ function App() {
           <Route
             path="/projects/playwright-automation"
             element={<PlaywrightProject />}
+          />
+
+          <Route
+            path="/projects/flipkart-automation"
+            element={<FlipkartAutomationProject />}
           />
         </Routes>
       </AnimatePresence>

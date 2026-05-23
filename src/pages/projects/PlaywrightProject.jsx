@@ -9,6 +9,18 @@ import {
   FaServer,
   FaArrowRight,
 } from "react-icons/fa";
+import {
+  Github,
+  ArrowLeft,
+  ShoppingCart,
+  Zap,
+  Database,
+  ShieldCheck,
+  Workflow,
+  CheckCircle2,
+} from "lucide-react";
+
+import { Link } from "react-router-dom";
 
 const metrics = [
   {
@@ -84,6 +96,21 @@ function PlaywrightProject() {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-transparent" />
 
           <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24">
+
+            {/* Back button */}
+            <Link
+              to="/"
+              className="
+                inline-flex items-center gap-2
+                text-slate-500 hover:text-blue-500
+                transition mb-10
+              "
+            >
+              <ArrowLeft size={18} />
+              Back to Portfolio
+            </Link>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center"></div>
 
             {/* Status */}
             <div className="flex items-center gap-2 mb-6">
