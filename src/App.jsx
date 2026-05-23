@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import PlaywrightProject from "./pages/projects/PlaywrightProject";
 import FlipkartAutomationProject from "./pages/projects/FlipkartAutomationProject";
+import EcommerceApiAutomationProject from "./pages/projects/EcommerceApiAutomationProject";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -40,6 +41,11 @@ function App() {
           <Route
             path="/projects/flipkart-automation"
             element={<FlipkartAutomationProject />}
+          />
+
+          <Route
+            path="/projects/ecommerce-api-automation"
+            element={<EcommerceApiAutomationProject />}
           />
         </Routes>
       </AnimatePresence>

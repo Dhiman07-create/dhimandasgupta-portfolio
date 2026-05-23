@@ -2,60 +2,63 @@ import { motion } from "framer-motion";
 import {
   Github,
   ArrowLeft,
-  ShoppingCart,
-  Zap,
-  Database,
+  Server,
   ShieldCheck,
   Workflow,
+  Database,
   CheckCircle2,
+  Zap,
+  Braces,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
 const metrics = [
   {
-    label: "Regression Coverage",
-    value: "120+",
-    icon: CheckCircle2,
+    label: "API Test Cases",
+    value: "150+",
+    icon: Braces,
   },
   {
-    label: "Execution Time",
-    value: "18 mins",
+    label: "Avg Execution",
+    value: "6 mins",
     icon: Zap,
   },
   {
-    label: "Tech Stack",
-    value: "Selenide + TestNG",
-    icon: Workflow,
+    label: "Validation Layers",
+    value: "Schema + DB",
+    icon: ShieldCheck,
   },
   {
     label: "CI/CD",
     value: "GitHub Actions",
-    icon: ShieldCheck,
+    icon: Workflow,
   },
 ];
 
 const techStack = [
   "Java",
-  "Selenide",
-  "TestNG",
-  "GitHub Actions",
-  "Allure Reports",
-  "Maven",
   "REST Assured",
+  "TestNG",
+  "Maven",
+  "JSON Schema Validation",
+  "GitHub Actions",
+  "Postman",
+  "Allure Reports",
+  "SQL",
   "Git",
 ];
 
 const engineeringHighlights = [
-  "Built scalable page object model for maintainability",
-  "Implemented reusable test utilities and base framework",
-  "Integrated automated regression execution using GitHub Actions",
-  "Added Allure reporting with execution insights",
-  "Optimized flaky UI flows with resilient waits and locators",
-  "Integrated API validation checks for backend consistency",
+  "Designed reusable API client utilities for scalable automation",
+  "Implemented schema validation for strict contract verification",
+  "Built dynamic payload generation utilities for data-driven testing",
+  "Integrated response time assertions and backend validation",
+  "Configured CI/CD execution using GitHub Actions workflows",
+  "Added reporting and execution insights using Allure Reports",
 ];
 
-function FlipkartAutomationProject() {
+function EcommerceApiAutomationProject() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -71,7 +74,7 @@ function FlipkartAutomationProject() {
     >
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-blue-500/5 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24">
           
@@ -93,28 +96,28 @@ function FlipkartAutomationProject() {
             {/* LEFT */}
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-500 text-sm mb-6">
-                <ShoppingCart size={16} />
-                Enterprise QA Automation
+                <Server size={16} />
+                Backend API Validation
               </div>
 
               <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-                Flipkart
+                E-commerce
                 <span className="block text-blue-500">
-                  E-commerce Automation
+                  API Automation
                 </span>
               </h1>
 
               <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
-                Designed and developed a scalable end-to-end automation
-                framework for Flipkart covering UI regression,
-                backend validation, and CI/CD execution pipelines
-                using Selenide, TestNG, and GitHub Actions.
+                Developed a scalable backend automation framework
+                using REST Assured and TestNG for validating APIs,
+                schema contracts, backend workflows, and
+                data consistency across e-commerce services.
               </p>
 
               {/* CTA */}
               <div className="flex flex-wrap gap-4 mt-10">
                 <a
-                  href="https://github.com/Dhiman07-create/flipkart-regression"
+                  href="https://github.com/Dhiman07-create/ecommerce-api-automation"
                   target="_blank"
                   rel="noreferrer"
                   className="
@@ -199,7 +202,7 @@ function FlipkartAutomationProject() {
           </p>
 
           <h2 className="text-4xl font-bold">
-            Automation System Design
+            API Automation Design
           </h2>
         </div>
 
@@ -215,10 +218,10 @@ function FlipkartAutomationProject() {
           <div className="grid md:grid-cols-5 gap-6 items-center">
             
             {[
-              "Test Suites",
-              "Page Objects",
-              "Utilities",
-              "Selenide Engine",
+              "API Test Suites",
+              "Request Builders",
+              "Validation Layer",
+              "REST Assured Engine",
               "Reports & CI",
             ].map((item, index) => (
               <div
@@ -335,15 +338,15 @@ function FlipkartAutomationProject() {
         </div>
       </section>
 
-      {/* CI/CD */}
+      {/* VALIDATION FLOW */}
       <section className="max-w-7xl mx-auto px-6 md:px-10 pb-24">
         <div className="mb-12">
           <p className="uppercase tracking-[0.25em] text-blue-500 text-sm font-semibold mb-4">
-            Continuous Integration
+            Validation Pipeline
           </p>
 
           <h2 className="text-4xl font-bold">
-            Automated Validation Flow
+            API Execution Flow
           </h2>
         </div>
 
@@ -356,12 +359,13 @@ function FlipkartAutomationProject() {
             shadow-xl
           "
         >
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-5 gap-6">
             {[
-              "Code Push",
-              "GitHub Actions",
-              "Regression Execution",
-              "Allure Reports",
+              "Payload Builder",
+              "Request Execution",
+              "Response Validation",
+              "Schema Verification",
+              "Reports & Logs",
             ].map((step, index) => (
               <div
                 key={step}
@@ -381,7 +385,7 @@ function FlipkartAutomationProject() {
 
                 {step}
 
-                {index !== 3 && (
+                {index !== 4 && (
                   <div className="hidden md:block absolute top-1/2 -right-7 text-blue-500">
                     →
                   </div>
@@ -408,38 +412,38 @@ function FlipkartAutomationProject() {
           
           <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg">
             <img
-              src="/projects/flipkart/allure-report.png"
+              src="/projects/api/allure-report.png"
               alt="Allure Report"
               className="w-full object-cover"
             />
 
             <div className="p-5">
               <h3 className="text-xl font-semibold mb-2">
-                Allure Dashboard
+                API Execution Dashboard
               </h3>
 
               <p className="text-slate-600 dark:text-slate-400">
-                Rich reporting with pass/fail trends,
-                execution metrics, and debugging insights.
+                Rich reporting for execution status,
+                request validation, and debugging insights.
               </p>
             </div>
           </div>
 
           <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg">
             <img
-              src="/projects/flipkart/github-actions.png"
+              src="/projects/api/github-actions.png"
               alt="GitHub Actions"
               className="w-full object-cover"
             />
 
             <div className="p-5">
               <h3 className="text-xl font-semibold mb-2">
-                CI Pipeline
+                CI Automation Pipeline
               </h3>
 
               <p className="text-slate-600 dark:text-slate-400">
-                Automated regression execution with scheduled workflows
-                and artifact retention.
+                Automated API execution integrated
+                with GitHub Actions workflows.
               </p>
             </div>
           </div>
@@ -450,4 +454,4 @@ function FlipkartAutomationProject() {
   );
 }
 
-export default FlipkartAutomationProject;
+export default EcommerceApiAutomationProject;
