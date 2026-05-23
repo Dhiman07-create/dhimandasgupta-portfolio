@@ -1,8 +1,11 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
+import PlaywrightProject from "./pages/projects/PlaywrightProject";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const location = useLocation();
@@ -16,12 +19,25 @@ function App() {
   }, [location]);
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects/:id" element={<ProjectDetail />} />
-      </Routes>
-    </AnimatePresence>
+    <>
+      <ScrollToTop />
+
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+
+          <Route
+            path="/projects/:id"
+            element={<ProjectDetail />}
+          />
+
+          <Route
+            path="/projects/playwright-automation"
+            element={<PlaywrightProject />}
+          />
+        </Routes>
+      </AnimatePresence>
+    </>
   );
 }
 

@@ -1,127 +1,215 @@
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
+import {
+  FaGithub,
+  FaArrowRight,
+  FaCircle,
+} from "react-icons/fa";
+
+const projects = [
+  {
+    title: "Playwright Automation Framework",
+    icon: "🎭",
+    description:
+      "Enterprise-grade Playwright framework supporting scalable UI + API automation with TypeScript and CI/CD integration.",
+    stack: ["Playwright", "TypeScript", "CI/CD", "API Testing"],
+    metrics: [
+      "120+ Automated Tests",
+      "GitHub Actions CI",
+      "UI + API Coverage",
+    ],
+    github:
+      "https://github.com/Dhiman07-create/playwright-e2e-framework",
+    details: "/projects/playwright-automation",
+    status: "ACTIVE",
+  },
+
+  {
+    title: "Flipkart E-commerce Automation",
+    icon: "🛒",
+    description:
+      "End-to-end regression automation suite for Flipkart using Selenide and TestNG with scheduled executions and reporting.",
+    stack: ["Java", "Selenide", "TestNG", "GitHub Actions"],
+    metrics: [
+      "Regression Coverage",
+      "Parallel Execution",
+      "CI Scheduled Runs",
+    ],
+    github:
+      "https://github.com/Dhiman07-create/flipkart-regression",
+    details: "/projects/flipkart-automation",
+    status: "ACTIVE",
+  },
+
+  {
+    title: "E-commerce API Automation",
+    icon: "⚙️",
+    description:
+      "REST Assured API framework with schema validation, reusable utilities, and backend consistency verification.",
+    stack: ["REST Assured", "Java", "API Testing", "JSON Schema"],
+    metrics: [
+      "Schema Validation",
+      "Reusable Utilities",
+      "Backend Verification",
+    ],
+    github:
+      "https://github.com/Dhiman07-create/ecommerce-api-automation",
+    details: "/projects/ecommerce-api-automation",
+    status: "ACTIVE",
+  },
+];
 
 function Projects() {
   return (
     <Reveal>
-    <section
-      id="projects"
-      className="px-10 py-20 bg-gray-100 dark:bg-gray-900"
-    >
-      <h2 className="text-4xl font-bold mb-10">Projects</h2>
-
-      <div className="grid md:grid-cols-2 gap-10 max-w-5xl">
-
-        {/* Project 1 */}
-        <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-          <h4 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">🎭 Playwright Automation Framework</h4>
-          <p className="mb-3 text-slate-600 dark:text-white">
-            Robust automation framework using Playwright and TypeScript for UI and API testing.
+      <section
+        id="projects"
+        className="
+          relative
+          px-6 md:px-10 py-24
+          bg-slate-100 dark:bg-slate-900
+          overflow-hidden
+        "
+      >
+        {/* Section Header */}
+        <div className="max-w-6xl mx-auto mb-14">
+          <p className="text-sm uppercase tracking-[0.3em] text-blue-500 font-semibold mb-3">
+            Engineering Showcase
           </p>
-          <p className="mb-3 text-slate-600 dark:text-white">
-            Built a scalable end-to-end automation framework using Playwright with TypeScript, designed to support both UI and API testing.
+
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Featured Projects
+          </h2>
+
+          <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-2xl">
+            Scalable automation systems, CI/CD pipelines, API frameworks,
+            and engineering-focused projects built with reliability,
+            observability, and performance in mind.
           </p>
-          <div className="flex items-center justify-between mt-4">
-          <a
-            href="https://github.com/Dhiman07-create/playwright-e2e-framework"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-400 hover:text-blue-500 transition"
-          >
-            View on GitHub →
-          </a>
-          <Link
-            to="/projects/playwright-automation"
-            className="text-red-400 hover:text-red-500 transition"
-          >
-            View Details →
-        </Link>
-        </div>
         </div>
 
-        {/* Project 2 */}
-        <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-          <h4 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">🛒 Flipkart E-commerce Automation</h4>
-          <p className="mb-3 text-slate-600 dark:text-white">
-            End-to-end automation framework for Flipkart covering UI, and regression scenarios 
-            using Selenide and TestNG.
-          </p>
-          <p className="mb-3 text-slate-600 dark:text-white">
-            Integrated CI/CD using GitHub Actions with scheduled runs and detailed test reporting.
-          </p>
-          <div className="flex items-center justify-between mt-4">
-          <a
-            href="https://github.com/Dhiman07-create/flipkart-regression"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-400 hover:text-blue-500 transition"
-          >
-            View on GitHub →
-          </a>
-          <Link
-            to="/projects/flipkart-automation"
-            className="text-red-400 hover:text-red-500 transition"
-          >
-            View Details →
-        </Link>
-        </div>
-        </div>
+        {/* Projects Grid */}
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="
+                group
+                relative
+                rounded-3xl
+                border border-slate-200 dark:border-slate-700
+                bg-white/70 dark:bg-slate-800/60
+                backdrop-blur-xl
+                p-7
+                transition-all duration-500
+                hover:-translate-y-2
+                hover:shadow-[0_20px_60px_rgba(59,130,246,0.18)]
+                overflow-hidden
+              "
+            >
+              {/* Glow Effect */}
+              <div
+                className="
+                  absolute inset-0 opacity-0
+                  group-hover:opacity-100
+                  transition duration-500
+                  bg-gradient-to-br
+                  from-blue-500/5
+                  via-indigo-500/5
+                  to-transparent
+                "
+              />
 
-        {/* Project 3 */}
-        {/* <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-          <h4 className="text-2xl font-semibold mb-3 text-slate-600 dark:text-white">📱 Mobile Automation Testing (Android)</h4>
-          <p className="mb-3 text-slate-600 dark:text-white">
-            Automated Android app flows using Appium, Selenium, and Java including login, field assignments, image uploads, and estimate validation.
-          </p>
-          <p className="mb-3 text-slate-600 dark:text-white">
-            Executed tests remotely via GitHub Actions with emulator setup and result assertions.
-          </p>
-          <div className="flex items-center justify-between mt-4">
-          <a
-            href="https://github.com/Dhiman07-create/ecommerce-mobile-app-automation"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-400 hover:text-blue-500 transition"
-          >
-            View on GitHub →
-          </a>
-          <Link
-            to="/projects/ecommerce-mobile-app-automation"
-            className="text-red-400 hover:text-red-500 transition"
-          >
-            View Details →
-        </Link>
-        </div>
-        </div> */}
+              {/* Status */}
+              <div className="flex items-center gap-2 mb-5 relative z-10">
+                <FaCircle className="text-green-500 text-[10px] animate-pulse" />
 
-        {/* Project 4 */}
-        <div className="bg-slate-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-          <h4 className="text-2xl font-semibold mb-3 text-slate-600 dark:text-white">⚙️ E-commerce API Automation</h4>
-          <p className="mb-3 text-slate-600 dark:text-white">
-            API automation suite built using REST Assured with request/response validation, schema checks.
-          </p>
-          <p className="mb-3 text-slate-600 dark:text-white">
-            Focused on data consistency, backend validation, and reusable test utilities.
-          </p>
-          <div className="flex items-center justify-between mt-4">
-          <a
-            href="https://github.com/Dhiman07-create/ecommerce-api-automation"
-            target="_blank"
-            rel="noreferrer"
-            className="text-blue-400 hover:text-blue-500 transition"
-          >
-            View on GitHub →
-          </a>
-          <Link
-            to="/projects/ecommerce-api-automation"
-            className="text-red-400 hover:text-red-500 transition"
-          >
-            View Details →
-        </Link>
+                <span className="text-xs tracking-widest text-green-500 font-semibold">
+                  {project.status}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-4 relative z-10">
+                {project.icon} {project.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 relative z-10">
+                {project.description}
+              </p>
+
+              {/* Stack Pills */}
+              <div className="flex flex-wrap gap-2 mb-6 relative z-10">
+                {project.stack.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="
+                      px-3 py-1
+                      rounded-full
+                      text-xs
+                      font-medium
+                      bg-blue-500/10
+                      text-blue-500
+                      border border-blue-500/20
+                    "
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Metrics */}
+              <div className="space-y-2 mb-8 relative z-10">
+                {project.metrics.map((metric, idx) => (
+                  <div
+                    key={idx}
+                    className="
+                      flex items-center gap-2
+                      text-sm text-slate-600 dark:text-slate-400
+                    "
+                  >
+                    <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                    {metric}
+                  </div>
+                ))}
+              </div>
+
+              {/* Actions */}
+              <div className="flex items-center justify-between relative z-10">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="
+                    flex items-center gap-2
+                    text-slate-700 dark:text-slate-300
+                    hover:text-blue-500
+                    transition
+                  "
+                >
+                  <FaGithub />
+                  GitHub
+                </a>
+
+                <Link
+                  to={project.details}
+                  className="
+                    flex items-center gap-2
+                    text-blue-500
+                    hover:gap-3
+                    transition-all
+                    font-medium
+                  "
+                >
+                  Case Study
+                  <FaArrowRight />
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
-        </div>
-      </div>
-    </section>
+      </section>
     </Reveal>
   );
 }
