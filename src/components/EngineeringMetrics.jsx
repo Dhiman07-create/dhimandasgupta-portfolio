@@ -39,8 +39,10 @@ function AnimatedNumber({ value, suffix = "" }) {
   );
 }
 
-function EngineeringMetrics() {
+function EngineeringMetrics({ variant = "default" }) {
   const [data, setData] = useState(null);
+  const isHero = variant === "hero";
+  const isCompact = variant === "compact";
 
   useEffect(() => {
     fetch(`${API_URL}/api/engineering-metrics`)
@@ -58,17 +60,22 @@ function EngineeringMetrics() {
   if (!data) {
     return (
       <div
-        className="
-          group relative rounded-2xl p-6
-          bg-white/60 dark:bg-slate-900/60
+        className={`
+          rounded-3xl
+          border
+          border-slate-200 dark:border-slate-700
+          bg-white/70 dark:bg-slate-900/70
           backdrop-blur-xl
-          border border-slate-200 dark:border-slate-700
-          shadow-sm
-          transition-all duration-300 ease-out
-          hover:-translate-y-1
-          hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)]
-          dark:hover:shadow-[0_20px_40px_rgba(15,23,42,0.6)]
-        "
+          transition-all duration-300
+
+          ${
+            isHero
+              ? "p-5 shadow-none bg-transparent border-none"
+              : isCompact
+              ? "p-5 shadow-lg"
+              : "p-7 shadow-xl"
+          }
+        `}
       >
         Loading metrics…
       </div>
@@ -77,41 +84,76 @@ function EngineeringMetrics() {
 
   return (
     <div
-      className="
-        group relative rounded-2xl p-6
-        bg-white/60 dark:bg-slate-900/60
+      className={`
+        rounded-3xl
+        border
+        border-slate-200 dark:border-slate-700
+        bg-white/70 dark:bg-slate-900/70
         backdrop-blur-xl
-        border border-slate-200 dark:border-slate-700
-        shadow-sm
-        transition-all duration-300 ease-out
-        hover:-translate-y-1
-        hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)]
-        dark:hover:shadow-[0_20px_40px_rgba(15,23,42,0.6)]
-      "
+        transition-all duration-300
+
+        ${
+          isHero
+            ? "p-5 shadow-none bg-transparent border-none"
+            : isCompact
+            ? "p-5 shadow-lg"
+            : "p-7 shadow-xl"
+        }
+      `}
     >
       {/* Header */}
-      <div className="mb-6">
-        <p className="text-xs uppercase tracking-widest text-blue-500 font-semibold">
+      <div className={isHero ? "mb-4" : "mb-6"}>
+        <p
+          className={`
+            uppercase tracking-widest text-blue-500 font-semibold
+
+            ${
+              isHero
+                ? "text-[10px]"
+                : "text-xs"
+            }
+          `}
+        >
           Live Engineering Telemetry
         </p>
-        <div className="mt-2 h-px bg-gradient-to-r from-blue-500/40 to-transparent" />
+
+        <div
+          className={`
+            mt-2 h-px
+            bg-gradient-to-r
+            from-blue-500/40
+            to-transparent
+
+            ${isHero ? "opacity-70" : ""}
+          `}
+        />
       </div>
 
       {/* Metrics */}
-      <div className="space-y-4 text-sm">
-        <Metric label="Commits (30 days)">
+      <div
+        className={`
+          text-sm
+
+          ${
+            isHero
+              ? "space-y-3"
+              : "space-y-4"
+          }
+        `}
+      >
+        <Metric label="Commits (30 days)" isHero={isHero}>
           <AnimatedNumber value={data.commits_30d} />
         </Metric>
 
-        <Metric label="Active Repositories">
+        <Metric label="Active Repositories" isHero={isHero}>
           <AnimatedNumber value={data.active_repos} />
         </Metric>
 
-        <Metric label="Top Language">
+        <Metric label="Top Language" isHero={isHero}>
           {data.top_language}
         </Metric>
 
-        <Metric label="Last CI Status">
+        <Metric label="Last CI Status" isHero={isHero}>
           <span className="flex items-center gap-2 font-medium">
             <span
               className={`h-2 w-2 rounded-full ${
@@ -124,25 +166,80 @@ function EngineeringMetrics() {
           </span>
         </Metric>
 
-        <Metric label="Avg CI Duration">
+        <Metric label="Avg CI Duration" isHero={isHero}>
           <AnimatedNumber value={data.avg_ci_duration_sec} suffix="s" />
         </Metric>
       </div>
 
       {/* Footer */}
-      <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-        <Github size={14} />
-        <span>Live from GitHub</span>
+      <div
+        className={`
+          flex items-center gap-2
+          text-slate-500 dark:text-slate-400
+
+          ${
+            isHero
+              ? "mt-4 pt-3 text-[11px]"
+              : "mt-6 pt-4 text-xs border-t border-slate-200 dark:border-slate-700"
+          }
+        `}
+      >
+        <Github size={isHero ? 12 : 14} />
+
+        <span>
+          Live engineering metrics · auto-updated
+        </span>
       </div>
     </div>
   );
 }
 
-function Metric({ label, children }) {
+function Metric({ label, children, isHero = false }) {
   return (
-    <div className="flex justify-between items-center">
-      <span className="text-slate-600 dark:text-slate-400">{label}</span>
-      <span className="font-semibold text-slate-900 dark:text-white">
+    <div
+      className={`
+        flex justify-between items-center
+        rounded-2xl
+        border border-slate-200 dark:border-slate-700
+        bg-white/70 dark:bg-slate-800/60
+        backdrop-blur-xl
+        transition-all duration-300
+
+        hover:scale-[1.02]
+        hover:shadow-lg
+
+        ${
+          isHero
+            ? "px-3 py-2"
+            : "px-4 py-3"
+        }
+      `}
+    >
+      <span
+        className={`
+          text-slate-600 dark:text-slate-400
+
+          ${
+            isHero
+              ? "text-xs"
+              : "text-sm"
+          }
+        `}
+      >
+        {label}
+      </span>
+
+      <span
+        className={`
+          font-semibold text-slate-900 dark:text-white
+
+          ${
+            isHero
+              ? "text-sm"
+              : "text-base"
+          }
+        `}
+      >
         {children}
       </span>
     </div>
