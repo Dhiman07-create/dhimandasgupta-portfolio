@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Github } from "lucide-react";
 
-const API_URL =
-  import.meta.env.MODE === "development"
-    ? "http://localhost:5000"
-    : "https://dhimandasgupta-portfolio.vercel.app";
+// const API_URL =
+//   import.meta.env.MODE === "development"
+//     ? "http://localhost:5000"
+//     : "https://dhimandasgupta-portfolio.vercel.app";
+
+const API_URL = "https://dhimandasgupta-portfolio.vercel.app";
 
 function AnimatedNumber({ value, suffix = "" }) {
   const [display, setDisplay] = useState(0);
