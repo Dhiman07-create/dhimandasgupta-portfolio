@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import { Github } from "lucide-react";
+import {
+  LineChart,
+  Line,
+  ResponsiveContainer
+} from "recharts";
 
 // const API_URL =
 //   import.meta.env.MODE === "development"
@@ -7,6 +12,15 @@ import { Github } from "lucide-react";
 //     : "https://dhimandasgupta-portfolio.vercel.app";
 
 const API_URL = "https://dhimandasgupta-portfolio.vercel.app";
+const sparkData = [
+  { value: 3 },
+  { value: 5 },
+  { value: 4 },
+  { value: 7 },
+  { value: 6 },
+  { value: 9 },
+  { value: 8 },
+];
 
 function AnimatedNumber({ value, suffix = "" }) {
   const [display, setDisplay] = useState(0);
@@ -130,17 +144,16 @@ function EngineeringMetrics({ variant = "default" }) {
       </div>
 
       {/* Metrics */}
-      <div
-        className={`
-          text-sm
-
-          ${
-            isHero
-              ? "space-y-3"
-              : "space-y-4"
-          }
-        `}
-      >
+        <div
+          className={`
+            ${
+              isHero
+                ? "grid grid-cols-1 gap-3"
+                : "space-y-4 text-sm"
+            }
+          `}
+        >
+          
         <Metric label="Commits (30 days)" isHero={isHero}>
           <AnimatedNumber value={data.commits_30d} />
         </Metric>
@@ -155,11 +168,30 @@ function EngineeringMetrics({ variant = "default" }) {
 
         <Metric label="Last CI Status" isHero={isHero}>
           <span className="flex items-center gap-2 font-medium">
-            <span
-              className={`h-2 w-2 rounded-full ${
-                isCiPassing ? "bg-green-500" : "bg-red-500"
-              }`}
-            />
+            <span className="relative flex h-2.5 w-2.5">
+              <span
+                className={`
+                  absolute inline-flex h-full w-full rounded-full
+                  animate-ping opacity-75
+                  ${
+                    isCiPassing
+                      ? "bg-green-400"
+                      : "bg-red-400"
+                  }
+                `}
+              />
+
+              <span
+                className={`
+                  relative inline-flex rounded-full h-2.5 w-2.5
+                  ${
+                    isCiPassing
+                      ? "bg-green-500"
+                      : "bg-red-500"
+                  }
+                `}
+              />
+            </span>
             <span className={isCiPassing ? "text-green-500" : "text-red-500"}>
               {data.last_ci_status}
             </span>
@@ -174,7 +206,7 @@ function EngineeringMetrics({ variant = "default" }) {
       {/* Footer */}
       <div
         className={`
-          flex items-center gap-2
+          flex items-center justify-between
           text-slate-500 dark:text-slate-400
 
           ${
@@ -184,11 +216,20 @@ function EngineeringMetrics({ variant = "default" }) {
           }
         `}
       >
-        <Github size={isHero ? 12 : 14} />
+        <div className="flex items-center gap-2">
+          <div className="relative">
+            <Github size={isHero ? 12 : 14} />
 
-        <span>
-          Live engineering metrics · auto-updated
-        </span>
+            <span className="absolute -top-1 -right-1 flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+          </div>
+
+          <span>
+            Live engineering metrics · auto-updated
+          </span>
+        </div>
       </div>
     </div>
   );
