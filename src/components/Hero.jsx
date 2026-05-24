@@ -14,6 +14,8 @@ function Hero() {
       className="
         relative min-h-screen
         overflow-hidden
+        will-change-transform
+        transform-gpu
         bg-slate-100
         dark:bg-[#081120]
         transition-colors duration-300
@@ -51,6 +53,8 @@ function Hero() {
           px-6 md:px-10
           py-24
           min-h-screen
+          will-change-transform
+          transform-gpu
           grid grid-cols-1 lg:grid-cols-2
           gap-16
           items-center
@@ -95,7 +99,7 @@ function Hero() {
               dark:border-slate-700
               bg-white/60
               dark:bg-slate-900/60
-              backdrop-blur-xl
+              backdrop-blur-md
               overflow-hidden
               shadow-xl
             "
@@ -209,7 +213,7 @@ function Hero() {
                   text-slate-700 dark:text-slate-200
                   backdrop-blur-md
                   shadow-sm
-                  hover:scale-105
+                  hover:border-blue-500/40
                   hover:shadow-lg
                   transition-all duration-300
                 "
@@ -242,7 +246,7 @@ function Hero() {
                 to-indigo-500
                 text-white
                 shadow-lg
-                hover:scale-105
+                hover:border-blue-500/40
                 hover:shadow-[0_0_30px_rgba(59,130,246,0.45)]
                 transition-all duration-300
               "
@@ -263,7 +267,7 @@ function Hero() {
                 font-semibold
                 border border-slate-300 dark:border-slate-700
                 bg-white/50 dark:bg-slate-900/50
-                backdrop-blur-xl
+                backdrop-blur-md
                 text-slate-700 dark:text-slate-200
                 hover:border-blue-400
                 hover:text-blue-500
@@ -295,8 +299,11 @@ function Hero() {
               bg-white/60 dark:bg-slate-900/60
               backdrop-blur-2xl
               p-8
-              shadow-2xl
+              shadow-lg
+              shadow-md
               overflow-hidden
+              will-change-transform
+              transform-gpu
             "
           >
             {/* Glow */}
@@ -414,8 +421,8 @@ function MetricCard({ icon, title, value }) {
         border border-slate-200 dark:border-slate-700
         bg-white/70 dark:bg-slate-800/70
         p-5
-        backdrop-blur-xl
-        hover:scale-[1.03]
+        backdrop-blur-md
+        hover:border-blue-500/40
         hover:shadow-xl
         transition-all duration-300
       "
