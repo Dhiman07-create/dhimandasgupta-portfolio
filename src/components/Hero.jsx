@@ -57,7 +57,7 @@ function Hero() {
           transform-gpu
           grid grid-cols-1 lg:grid-cols-2
           gap-16
-          items-center
+          lg:items-start items-center
         "
       >
         {/* ================================================= */}
