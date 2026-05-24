@@ -172,6 +172,8 @@ Please change the parent <Route path="${M}"> to <Route path="${M==="/"?"*":`${M}
         `,children:i})]})}var Wv={color:void 0,size:void 0,className:void 0,style:void 0,attr:void 0},Ug=na.createContext&&na.createContext(Wv),eE=["attr","size","title"];function nE(n,i){if(n==null)return{};var s,r,c=aE(n,i);if(Object.getOwnPropertySymbols){var f=Object.getOwnPropertySymbols(n);for(r=0;r<f.length;r++)s=f[r],i.indexOf(s)===-1&&{}.propertyIsEnumerable.call(n,s)&&(c[s]=n[s])}return c}function aE(n,i){if(n==null)return{};var s={};for(var r in n)if({}.hasOwnProperty.call(n,r)){if(i.indexOf(r)!==-1)continue;s[r]=n[r]}return s}function Br(){return Br=Object.assign?Object.assign.bind():function(n){for(var i=1;i<arguments.length;i++){var s=arguments[i];for(var r in s)({}).hasOwnProperty.call(s,r)&&(n[r]=s[r])}return n},Br.apply(null,arguments)}function Hg(n,i){var s=Object.keys(n);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(n);i&&(r=r.filter(function(c){return Object.getOwnPropertyDescriptor(n,c).enumerable})),s.push.apply(s,r)}return s}function Ur(n){for(var i=1;i<arguments.length;i++){var s=arguments[i]!=null?arguments[i]:{};i%2?Hg(Object(s),!0).forEach(function(r){iE(n,r,s[r])}):Object.getOwnPropertyDescriptors?Object.defineProperties(n,Object.getOwnPropertyDescriptors(s)):Hg(Object(s)).forEach(function(r){Object.defineProperty(n,r,Object.getOwnPropertyDescriptor(s,r))})}return n}function iE(n,i,s){return(i=lE(i))in n?Object.defineProperty(n,i,{value:s,enumerable:!0,configurable:!0,writable:!0}):n[i]=s,n}function lE(n){var i=sE(n,"string");return typeof i=="symbol"?i:i+""}function sE(n,i){if(typeof n!="object"||!n)return n;var s=n[Symbol.toPrimitive];if(s!==void 0){var r=s.call(n,i);if(typeof r!="object")return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return(i==="string"?String:Number)(n)}function Iv(n){return n&&n.map((i,s)=>na.createElement(i.tag,Ur({key:s},i.attr),Iv(i.child)))}function Mn(n){return i=>na.createElement(rE,Br({attr:Ur({},n.attr)},i),Iv(n.child))}function rE(n){var i=s=>{var{attr:r,size:c,title:f}=n,d=nE(n,eE),p=c||s.size||"1em",y;return s.className&&(y=s.className),n.className&&(y=(y?y+" ":"")+n.className),na.createElement("svg",Br({stroke:"currentColor",fill:"currentColor",strokeWidth:"0"},s.attr,r,d,{className:y,style:Ur(Ur({color:n.color||s.color},s.style),n.style),height:p,width:p,xmlns:"http://www.w3.org/2000/svg"}),f&&na.createElement("title",null,f),n.children)};return Ug!==void 0?na.createElement(Ug.Consumer,null,s=>i(s)):i(Wv)}function tx(n){return Mn({attr:{viewBox:"0 0 496 512"},child:[{tag:"path",attr:{d:"M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"},child:[]}]})(n)}function oE(n){return Mn({attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{d:"M480 160H32c-17.673 0-32-14.327-32-32V64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24z"},child:[]}]})(n)}function uE(n){return Mn({attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{d:"M12.41 148.02l232.94 105.67c6.8 3.09 14.49 3.09 21.29 0l232.94-105.67c16.55-7.51 16.55-32.52 0-40.03L266.65 2.31a25.607 25.607 0 0 0-21.29 0L12.41 107.98c-16.55 7.51-16.55 32.53 0 40.04zm487.18 88.28l-58.09-26.33-161.64 73.27c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.51 209.97l-58.1 26.33c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 276.3c16.55-7.5 16.55-32.5 0-40zm0 127.8l-57.87-26.23-161.86 73.37c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.29 337.87 12.41 364.1c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 404.1c16.55-7.5 16.55-32.5 0-40z"},child:[]}]})(n)}function cE(n){return Mn({attr:{viewBox:"0 0 384 512"},child:[{tag:"path",attr:{d:"M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z"},child:[]}]})(n)}function fE(n){return Mn({attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{d:"M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"},child:[]}]})(n)}function Gg(n){return Mn({attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{d:"M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"},child:[]}]})(n)}function dE(n){return Mn({attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{d:"M511.988 288.9c-.478 17.43-15.217 31.1-32.653 31.1H424v16c0 21.864-4.882 42.584-13.6 61.145l60.228 60.228c12.496 12.497 12.496 32.758 0 45.255-12.498 12.497-32.759 12.496-45.256 0l-54.736-54.736C345.886 467.965 314.351 480 280 480V236c0-6.627-5.373-12-12-12h-24c-6.627 0-12 5.373-12 12v244c-34.351 0-65.886-12.035-90.636-32.108l-54.736 54.736c-12.498 12.497-32.759 12.496-45.256 0-12.496-12.497-12.496-32.758 0-45.255l60.228-60.228C92.882 378.584 88 357.864 88 336v-16H32.666C15.23 320 .491 306.33.013 288.9-.484 270.816 14.028 256 32 256h56v-58.745l-46.628-46.628c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0L141.255 160h229.489l54.627-54.627c12.498-12.497 32.758-12.497 45.256 0 12.496 12.497 12.496 32.758 0 45.255L424 197.255V256h56c17.972 0 32.484 14.816 31.988 32.9zM257 0c-61.856 0-112 50.144-112 112h224C369 50.144 318.856 0 257 0z"},child:[]}]})(n)}function hE(n){return Mn({attr:{viewBox:"0 0 320 512"},child:[{tag:"path",attr:{d:"M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z"},child:[]}]})(n)}function ex(n){return Mn({attr:{viewBox:"0 0 448 512"},child:[{tag:"path",attr:{d:"M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"},child:[]}]})(n)}function mE(){return m.jsxs("section",{id:"hero",className:`
         relative min-h-screen
         overflow-hidden
+        will-change-transform
+        transform-gpu
         bg-slate-100
         dark:bg-[#081120]
         transition-colors duration-300
@@ -189,6 +191,8 @@ Please change the parent <Route path="${M}"> to <Route path="${M==="/"?"*":`${M}
           px-6 md:px-10
           py-24
           min-h-screen
+          will-change-transform
+          transform-gpu
           grid grid-cols-1 lg:grid-cols-2
           gap-16
           items-center
@@ -208,7 +212,7 @@ Please change the parent <Route path="${M}"> to <Route path="${M==="/"?"*":`${M}
               dark:border-slate-700
               bg-white/60
               dark:bg-slate-900/60
-              backdrop-blur-xl
+              backdrop-blur-md
               overflow-hidden
               shadow-xl
             `,children:[m.jsxs("div",{className:"flex items-center gap-2 px-4 py-3 border-b border-slate-200 dark:border-slate-800",children:[m.jsx("div",{className:"w-3 h-3 rounded-full bg-red-400"}),m.jsx("div",{className:"w-3 h-3 rounded-full bg-yellow-400"}),m.jsx("div",{className:"w-3 h-3 rounded-full bg-green-400"})]}),m.jsxs("div",{className:"p-5 font-mono text-sm md:text-base text-slate-700 dark:text-slate-300 space-y-2",children:[m.jsxs("p",{children:[m.jsx("span",{className:"text-cyan-500",children:"$"})," initializing_profile..."]}),m.jsx("p",{className:"text-emerald-500",children:"✔ SDET & Automation Engineer"}),m.jsx("p",{className:"text-emerald-500",children:"✔ CI/CD & Test Infrastructure Builder"}),m.jsx("p",{className:"text-emerald-500",children:"✔ Data Engineering Enthusiast"})]})]}),m.jsxs(_t.h1,{initial:{opacity:0,y:24},animate:{opacity:1,y:0},transition:{delay:.2},className:`
@@ -242,7 +246,7 @@ Please change the parent <Route path="${M}"> to <Route path="${M==="/"?"*":`${M}
                   text-slate-700 dark:text-slate-200
                   backdrop-blur-md
                   shadow-sm
-                  hover:scale-105
+                  hover:border-blue-500/40
                   hover:shadow-lg
                   transition-all duration-300
                 `,children:n},n))}),m.jsxs(_t.div,{initial:{opacity:0,y:16},animate:{opacity:1,y:0},transition:{delay:.5},className:"flex flex-wrap gap-5",children:[m.jsxs("a",{href:"/Dhiman_Dasgupta_Resume.pdf",target:"_blank",rel:"noopener noreferrer",className:`
@@ -256,7 +260,7 @@ Please change the parent <Route path="${M}"> to <Route path="${M==="/"?"*":`${M}
                 to-indigo-500
                 text-white
                 shadow-lg
-                hover:scale-105
+                hover:border-blue-500/40
                 hover:shadow-[0_0_30px_rgba(59,130,246,0.45)]
                 transition-all duration-300
               `,children:["📄 Resume",m.jsx("span",{className:"group-hover:translate-x-1 transition-transform",children:"→"})]}),m.jsx("a",{href:"#contact",className:`
@@ -266,7 +270,7 @@ Please change the parent <Route path="${M}"> to <Route path="${M==="/"?"*":`${M}
                 font-semibold
                 border border-slate-300 dark:border-slate-700
                 bg-white/50 dark:bg-slate-900/50
-                backdrop-blur-xl
+                backdrop-blur-md
                 text-slate-700 dark:text-slate-200
                 hover:border-blue-400
                 hover:text-blue-500
@@ -279,8 +283,11 @@ Please change the parent <Route path="${M}"> to <Route path="${M==="/"?"*":`${M}
               bg-white/60 dark:bg-slate-900/60
               backdrop-blur-2xl
               p-8
-              shadow-2xl
+              shadow-lg
+              shadow-md
               overflow-hidden
+              will-change-transform
+              transform-gpu
             `,children:[m.jsx("div",{className:"absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-400/5 pointer-events-none"}),m.jsxs("div",{className:"flex items-center justify-between mb-8",children:[m.jsxs("div",{children:[m.jsx("p",{className:"text-sm text-slate-500 uppercase tracking-widest",children:"Engineering Console"}),m.jsx("h3",{className:"text-2xl font-bold mt-1",children:"Live System Metrics"})]}),m.jsxs("div",{className:`
                   flex items-center gap-2
                   px-3 py-2
