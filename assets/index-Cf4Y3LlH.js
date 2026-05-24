@@ -195,7 +195,7 @@ Please change the parent <Route path="${M}"> to <Route path="${M==="/"?"*":`${M}
           transform-gpu
           grid grid-cols-1 lg:grid-cols-2
           gap-16
-          items-center
+          lg:items-start items-center
         `,children:[m.jsxs("div",{className:"flex flex-col items-start",children:[m.jsxs(_t.div,{initial:{opacity:0,y:12},animate:{opacity:1,y:0},transition:{duration:.5},className:`
               mb-6
               inline-flex items-center gap-2
