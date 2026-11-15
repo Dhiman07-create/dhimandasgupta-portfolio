@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import EngineeringMetrics from "./EngineeringMetrics";
-import {
-  FaGithub,
-  FaCloud,
-  FaCodeBranch,
-  FaCheckCircle,
-} from "react-icons/fa";
+
+const floatingStats = [
+  { value: "3+", label: "Years Experience", position: "top-10 left-0 sm:-left-6 md:-left-14" },
+  { value: "95%", label: "Faster Releases", position: "top-0 right-0 sm:-right-4 md:-right-12" },
+  { value: "70%", label: "Coverage Achieved", position: "bottom-0 left-0 sm:-left-4 md:-left-12" },
+  { value: "25+", label: "Releases Shipped", position: "bottom-10 right-0 sm:-right-6 md:-right-14" },
+];
 
 function Hero() {
   return (
@@ -14,10 +14,8 @@ function Hero() {
       className="
         relative min-h-screen
         overflow-hidden
-        will-change-transform
-        transform-gpu
-        bg-slate-100
-        dark:bg-[#081120]
+        bg-zinc-100
+        dark:bg-zinc-950
         transition-colors duration-300
       "
     >
@@ -43,6 +41,20 @@ function Hero() {
       <div className="absolute top-[-120px] left-[-120px] w-[320px] h-[320px] bg-blue-500/20 blur-3xl rounded-full" />
       <div className="absolute bottom-[-120px] right-[-120px] w-[320px] h-[320px] bg-cyan-400/20 blur-3xl rounded-full" />
 
+      {/* Dramatic right-side wash, matching the reference's bright blue bleed */}
+      <div
+        className="
+          absolute top-1/2 right-0
+          -translate-y-1/2 translate-x-1/4
+          w-[700px] h-[700px]
+          rounded-full
+          blur-[100px]
+          pointer-events-none
+          bg-[radial-gradient(circle,rgba(59,130,246,0.35)_0%,rgba(37,99,235,0.16)_40%,transparent_70%)]
+          dark:bg-[radial-gradient(circle,rgba(59,130,246,0.55)_0%,rgba(37,99,235,0.3)_40%,transparent_70%)]
+        "
+      />
+
       {/* ================= MAIN CONTENT ================= */}
 
       <div
@@ -53,11 +65,9 @@ function Hero() {
           px-6 md:px-10
           py-24
           min-h-screen
-          will-change-transform
-          transform-gpu
           grid grid-cols-1 lg:grid-cols-2
           gap-16
-          lg:items-start items-center
+          items-center
         "
       >
         {/* ================================================= */}
@@ -86,72 +96,29 @@ function Hero() {
             </span>
           </motion.div>
 
-          {/* Terminal Intro */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="
-              mb-6
-              w-full max-w-xl
-              rounded-2xl
-              border border-slate-300/60
-              dark:border-slate-700
-              bg-white/60
-              dark:bg-slate-900/60
-              backdrop-blur-md
-              overflow-hidden
-              shadow-xl
-            "
-          >
-            {/* Terminal Header */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-200 dark:border-slate-800">
-              <div className="w-3 h-3 rounded-full bg-red-400" />
-              <div className="w-3 h-3 rounded-full bg-yellow-400" />
-              <div className="w-3 h-3 rounded-full bg-green-400" />
-            </div>
-
-            {/* Terminal Body */}
-            <div className="p-5 font-mono text-sm md:text-base text-slate-700 dark:text-slate-300 space-y-2">
-              <p>
-                <span className="text-cyan-500">$</span> initializing_profile...
-              </p>
-
-              <p className="text-emerald-500">
-                ✔ SDET & Automation Engineer
-              </p>
-
-              <p className="text-emerald-500">
-                ✔ CI/CD & Test Infrastructure Builder
-              </p>
-
-              <p className="text-emerald-500">
-                ✔ Data Engineering Enthusiast
-              </p>
-            </div>
-          </motion.div>
-
           {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.1 }}
             className="
-              text-5xl md:text-7xl
-              font-black
+              text-4xl md:text-6xl
+              font-bold
               leading-tight
               tracking-tight
               mb-6
             "
           >
-            <span className="text-slate-900 dark:text-white">
-              Dhiman
+            <span className="text-zinc-900 dark:text-white">
+              Hi! I&apos;m Dhiman, building
             </span>
 
             <br />
 
             <span
               className="
+                pr-2
+                font-black italic
                 bg-gradient-to-r
                 from-blue-500
                 via-cyan-400
@@ -160,7 +127,7 @@ function Hero() {
                 text-transparent
               "
             >
-              Dasgupta
+              code you can trust.
             </span>
           </motion.h1>
 
@@ -168,66 +135,25 @@ function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.2 }}
             className="
-              max-w-2xl
+              max-w-xl
               text-lg md:text-xl
               leading-relaxed
-              text-slate-600
-              dark:text-slate-300
-              mb-8
+              text-zinc-600
+              dark:text-zinc-300
+              mb-10
             "
           >
-            Building scalable automation frameworks, CI/CD systems,
-            and data-driven engineering solutions using modern testing
-            and cloud technologies.
+            SDET specializing in automation, CI/CD, and quality
+            engineering across web, mobile, and API platforms.
           </motion.p>
-
-          {/* Tech Stack Pills */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="
-              flex flex-wrap gap-3 mb-10
-            "
-          >
-            {[
-              "Java",
-              "Selenium",
-              "Playwright",
-              "Appium",
-              "GitHub Actions",
-              "PostgreSQL",
-              "GCP",
-              "REST APIs",
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="
-                  px-4 py-2
-                  rounded-full
-                  text-sm font-medium
-                  bg-white/70 dark:bg-slate-800/70
-                  border border-slate-200 dark:border-slate-700
-                  text-slate-700 dark:text-slate-200
-                  backdrop-blur-md
-                  shadow-sm
-                  hover:border-blue-500/40
-                  hover:shadow-lg
-                  transition-all duration-300
-                "
-              >
-                {tech}
-              </span>
-            ))}
-          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.3 }}
             className="flex flex-wrap gap-5"
           >
             {/* Resume */}
@@ -265,10 +191,10 @@ function Hero() {
                 px-7 py-4
                 rounded-2xl
                 font-semibold
-                border border-slate-300 dark:border-slate-700
-                bg-white/50 dark:bg-slate-900/50
+                border border-zinc-300 dark:border-zinc-700
+                bg-white/50 dark:bg-zinc-900/50
                 backdrop-blur-md
-                text-slate-700 dark:text-slate-200
+                text-zinc-700 dark:text-zinc-200
                 hover:border-blue-400
                 hover:text-blue-500
                 hover:shadow-[0_0_25px_rgba(59,130,246,0.2)]
@@ -281,107 +207,75 @@ function Hero() {
         </div>
 
         {/* ================================================= */}
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE — PHOTO + FLOATING STATS */}
         {/* ================================================= */}
 
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4 }}
-          className="relative"
+          transition={{ delay: 0.3 }}
+          className="relative mx-auto w-full max-w-sm lg:max-w-md"
         >
-          {/* Main Console Card */}
+          {/* Defined circular glow halo, offset toward the right */}
+          <div
+            className="
+              absolute
+              top-1/2 right-[-15%]
+              -translate-y-1/2
+              w-[85%] h-[85%]
+              rounded-full
+              blur-2xl
+              pointer-events-none
+            "
+            style={{
+              background:
+                "radial-gradient(circle, rgba(59,130,246,0.45) 0%, rgba(59,130,246,0.18) 45%, transparent 72%)",
+            }}
+          />
+
           <div
             className="
               relative
-              rounded-3xl
-              border border-slate-200 dark:border-slate-800
-              bg-white/60 dark:bg-slate-900/60
-              backdrop-blur-2xl
-              p-8
-              shadow-lg
-              shadow-md
+              rounded-full
               overflow-hidden
-              will-change-transform
-              transform-gpu
+              aspect-square
             "
           >
-            {/* Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-cyan-400/5 pointer-events-none" />
-
-            {/* Header */}
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <p className="text-sm text-slate-500 uppercase tracking-widest">
-                  Engineering Console
-                </p>
-
-                <h3 className="text-2xl font-bold mt-1">
-                  Live System Metrics
-                </h3>
-              </div>
-
-              <div
-                className="
-                  flex items-center gap-2
-                  px-3 py-2
-                  rounded-full
-                  bg-emerald-500/10
-                  border border-emerald-500/20
-                "
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-sm text-emerald-500 font-medium">
-                  Operational
-                </span>
-              </div>
-            </div>
-
-            {/* Live Engineering Metrics */}
-            <div className="mb-8">
-              <EngineeringMetrics variant="hero" />
-            </div>
-
-            {/* Pipeline Flow */}
-            <div className="mb-8">
-              <p className="text-sm uppercase tracking-widest text-slate-500 mb-4">
-                Deployment Flow
-              </p>
-
-              <div className="flex items-center justify-between gap-3 flex-wrap">
-                {["Commit", "Build", "Test", "Deploy"].map((step) => (
-                  <div
-                    key={step}
-                    className="
-                      flex-1 min-w-[70px]
-                      text-center
-                      px-3 py-3
-                      rounded-xl
-                      bg-slate-100 dark:bg-slate-800
-                      border border-slate-200 dark:border-slate-700
-                      text-sm font-medium
-                    "
-                  >
-                    {step}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Stack Strength */}
-            <div>
-              <p className="text-sm uppercase tracking-widest text-slate-500 mb-4">
-                Engineering Stack
-              </p>
-
-              <div className="space-y-4">
-                <StackBar label="Automation" width="92%" />
-                <StackBar label="CI/CD" width="84%" />
-                <StackBar label="Cloud & APIs" width="76%" />
-                <StackBar label="Data Engineering" width="68%" />
-              </div>
-            </div>
+            <img
+              src="/profile.png"
+              alt="Dhiman Dasgupta"
+              className="w-full h-full object-cover"
+            />
           </div>
+
+          {/* Floating Stat Badges */}
+          {floatingStats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
+              className={`
+                absolute ${stat.position}
+                px-4 py-3
+                rounded-2xl
+                border border-white/40 dark:border-white/20
+                bg-gradient-to-br from-white/25 to-white/5
+                dark:from-white/[0.08] dark:to-white/[0.01]
+                backdrop-blur-sm
+                shadow-[0_10px_30px_-8px_rgba(0,0,0,0.25),inset_0_1px_0_0_rgba(255,255,255,0.5)]
+                dark:shadow-[0_15px_35px_-8px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.3)]
+              `}
+            >
+              <p className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-white leading-none">
+                {stat.value}
+              </p>
+
+              <p className="mt-1 text-xs text-zinc-600 dark:text-white/70 whitespace-nowrap">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
 
@@ -389,7 +283,7 @@ function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
@@ -400,76 +294,14 @@ function Hero() {
           }}
           className="
             text-2xl
-            text-slate-500
-            dark:text-slate-400
+            text-zinc-500
+            dark:text-zinc-400
           "
         >
           ↓
         </motion.div>
       </motion.div>
     </section>
-  );
-}
-
-/* ================= COMPONENTS ================= */
-
-function MetricCard({ icon, title, value }) {
-  return (
-    <div
-      className="
-        rounded-2xl
-        border border-slate-200 dark:border-slate-700
-        bg-white/70 dark:bg-slate-800/70
-        p-5
-        backdrop-blur-md
-        hover:border-blue-500/40
-        hover:shadow-xl
-        transition-all duration-300
-      "
-    >
-      <div className="text-blue-500 text-xl mb-3">
-        {icon}
-      </div>
-
-      <p className="text-sm text-slate-500 mb-1">
-        {title}
-      </p>
-
-      <h4 className="text-xl font-bold">
-        {value}
-      </h4>
-    </div>
-  );
-}
-
-function StackBar({ label, width }) {
-  return (
-    <div>
-      <div className="flex justify-between mb-2">
-        <span className="text-sm font-medium">
-          {label}
-        </span>
-
-        <span className="text-sm text-slate-500">
-          {width}
-        </span>
-      </div>
-
-      <div className="h-3 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width }}
-          transition={{ duration: 1 }}
-          className="
-            h-full
-            rounded-full
-            bg-gradient-to-r
-            from-blue-500
-            to-cyan-400
-          "
-        />
-      </div>
-    </div>
   );
 }
 

@@ -1,28 +1,25 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
-  Moon,
-  Sun,
   Menu,
   X,
   Code2,
 } from "lucide-react";
 
+import ThemeToggle from "./ThemeToggle";
+
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
 ];
 
 function Navbar() {
-  const [isDark, setIsDark] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
-
     const handleScroll = () => {
       setScrolled(window.scrollY > 24);
     };
@@ -31,16 +28,6 @@ function Navbar() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle("dark");
-
-    const dark = document.documentElement.classList.contains("dark");
-
-    setIsDark(dark);
-
-    localStorage.setItem("theme", dark ? "dark" : "light");
-  };
 
   return (
     <motion.nav
@@ -54,10 +41,11 @@ function Navbar() {
         ${
           scrolled
             ? `
-              bg-white/75 dark:bg-slate-950/75
-              backdrop-blur-2xl
-              border-b border-slate-200 dark:border-slate-800
-              shadow-[0_8px_30px_rgba(0,0,0,0.04)]
+              bg-gradient-to-br from-white/25 to-white/10
+              dark:from-white/[0.08] dark:to-white/[0.02]
+              backdrop-blur-sm
+              shadow-[0_8px_30px_rgba(0,0,0,0.04),inset_0_-1px_0_0_#e4e4e7,inset_0_1px_0_0_rgba(255,255,255,0.5)]
+              dark:shadow-[0_8px_30px_rgba(0,0,0,0.3),inset_0_-1px_0_0_#27272a,inset_0_1px_0_0_rgba(255,255,255,0.15)]
             `
             : `
               bg-transparent
@@ -100,7 +88,7 @@ function Navbar() {
                 Dhiman Dasgupta
               </span>
 
-              <span className="text-xs text-slate-500 dark:text-slate-400 tracking-wide">
+              <span className="text-xs text-zinc-500 dark:text-zinc-400 tracking-wide">
                 SOFTWARE ENGINEER · SDET
               </span>
             </div>
@@ -115,8 +103,8 @@ function Navbar() {
                 flex items-center gap-1
                 px-2 py-2
                 rounded-2xl
-                border border-slate-200 dark:border-slate-800
-                bg-white/70 dark:bg-slate-900/70
+                border border-zinc-200 dark:border-zinc-800
+                bg-white/70 dark:bg-zinc-900/70
                 backdrop-blur-xl
                 shadow-lg
               "
@@ -129,7 +117,7 @@ function Navbar() {
                     relative
                     px-4 py-2 rounded-xl
                     text-sm font-medium
-                    text-slate-600 dark:text-slate-300
+                    text-zinc-600 dark:text-zinc-300
 
                     hover:text-blue-500
                     hover:bg-blue-500/10
@@ -143,72 +131,40 @@ function Navbar() {
             </div>
 
             {/* Theme Toggle */}
-            <button
-              onClick={toggleDarkMode}
+            <ThemeToggle className="w-12 h-12" iconSize={20} />
+
+            {/* CTA */}
+            <a
+              href="#contact"
               className="
-                relative
-                w-12 h-12
+                px-5 py-3
                 rounded-2xl
-
-                border border-slate-200 dark:border-slate-800
-                bg-white/70 dark:bg-slate-900/70
-
-                backdrop-blur-xl
-                shadow-lg
-
-                flex items-center justify-center
-
+                text-sm font-semibold
+                text-white
+                bg-gradient-to-r from-blue-500 to-indigo-500
+                shadow-lg shadow-blue-500/20
                 hover:scale-105
-                hover:shadow-blue-500/20
-
+                hover:shadow-[0_0_25px_rgba(59,130,246,0.4)]
                 transition-all duration-300
               "
-              aria-label="Toggle Theme"
             >
-              <motion.div
-                key={isDark ? "dark" : "light"}
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.25 }}
-              >
-                {isDark ? (
-                  <Sun className="text-yellow-400" size={20} />
-                ) : (
-                  <Moon className="text-slate-700" size={20} />
-                )}
-              </motion.div>
-            </button>
+              Let&apos;s Talk
+            </a>
           </div>
 
           {/* MOBILE BUTTON */}
           <div className="md:hidden flex items-center gap-3">
 
             {/* theme toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="
-                w-11 h-11 rounded-2xl
-                border border-slate-200 dark:border-slate-800
-                bg-white/70 dark:bg-slate-900/70
-                backdrop-blur-xl
-                flex items-center justify-center
-              "
-            >
-              {isDark ? (
-                <Sun className="text-yellow-400" size={18} />
-              ) : (
-                <Moon className="text-slate-700" size={18} />
-              )}
-            </button>
+            <ThemeToggle className="w-11 h-11" iconSize={18} />
 
             {/* mobile menu */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="
                 w-11 h-11 rounded-2xl
-                border border-slate-200 dark:border-slate-800
-                bg-white/70 dark:bg-slate-900/70
+                border border-zinc-200 dark:border-zinc-800
+                bg-white/70 dark:bg-zinc-900/70
                 backdrop-blur-xl
                 flex items-center justify-center
               "
@@ -233,9 +189,9 @@ function Navbar() {
               mb-4 p-4
 
               rounded-3xl
-              border border-slate-200 dark:border-slate-800
+              border border-zinc-200 dark:border-zinc-800
 
-              bg-white/80 dark:bg-slate-900/80
+              bg-white/80 dark:bg-zinc-900/80
               backdrop-blur-2xl
 
               shadow-2xl
@@ -251,7 +207,7 @@ function Navbar() {
                     px-4 py-3 rounded-2xl
 
                     text-sm font-medium
-                    text-slate-700 dark:text-slate-300
+                    text-zinc-700 dark:text-zinc-300
 
                     hover:bg-blue-500/10
                     hover:text-blue-500
@@ -262,6 +218,21 @@ function Navbar() {
                   {link.name}
                 </a>
               ))}
+
+              <a
+                href="#contact"
+                onClick={() => setMobileOpen(false)}
+                className="
+                  mt-2 px-4 py-3 rounded-2xl
+                  text-sm font-semibold text-center
+                  text-white
+                  bg-gradient-to-r from-blue-500 to-indigo-500
+                  shadow-lg shadow-blue-500/20
+                  transition-all duration-300
+                "
+              >
+                Let&apos;s Talk
+              </a>
             </div>
           </motion.div>
         )}

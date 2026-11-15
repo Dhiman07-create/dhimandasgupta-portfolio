@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import {
   TestTube2,
   Code2,
-  Cloud,
+  Server,
   Database,
   Wrench,
   Cpu,
@@ -18,7 +18,6 @@ const skillGroups = [
       "Playwright",
       "Selenium",
       "Appium",
-      "REST Assured",
       "Selenide",
       "TestNG",
     ],
@@ -42,27 +41,26 @@ const skillGroups = [
       "GitHub",
       "GitHub Actions",
       "Maven",
-      "Jenkins",
     ],
   },
   {
-    title: "Databases & Data",
+    title: "API Testing",
+    icon: Server,
+    skills: [
+      "REST Assured",
+      "Postman",
+      "Bruno",
+      "JSON Schema Validation",
+    ],
+  },
+  {
+    title: "Database Testing",
     icon: Database,
     skills: [
       "PostgreSQL",
       "Database Validation",
-      "ETL Pipelines",
-      "Data Modeling",
-    ],
-  },
-  {
-    title: "Cloud & Infrastructure",
-    icon: Cloud,
-    skills: [
-      "Google Cloud Platform",
-      "Docker",
-      "Linux",
-      "Cloud Workflows",
+      "Backend Verification",
+      "SQL Queries",
     ],
   },
   {
@@ -70,9 +68,9 @@ const skillGroups = [
     icon: Wrench,
     skills: [
       "JMeter",
-      "Postman",
+      "Performance Testing",
       "Allure Reports",
-      "API Testing",
+      "Cross-Browser Testing",
     ],
   },
 ];
@@ -85,7 +83,7 @@ function Skills() {
         className="
           relative overflow-hidden
           px-6 md:px-10 py-24
-          bg-slate-100 dark:bg-slate-900
+          bg-zinc-100 dark:bg-zinc-950
           transition-colors duration-300
         "
       >
@@ -103,15 +101,15 @@ function Skills() {
         <div className="relative z-10 max-w-7xl mx-auto">
           
           {/* HEADER */}
-          <div className="mb-16">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
             <p className="uppercase tracking-[0.25em] text-blue-500 text-sm font-semibold mb-4">
               Technical Expertise
             </p>
 
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight max-w-4xl">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
               Engineering skills focused on
               automation, quality systems,
-              cloud workflows, and scalable tooling.
+              API & database testing, and scalable tooling.
             </h2>
           </div>
 
@@ -133,8 +131,8 @@ function Skills() {
                   className="
                     group
                     rounded-3xl
-                    border border-slate-200 dark:border-slate-800
-                    bg-white/80 dark:bg-slate-950/70
+                    border border-zinc-200 dark:border-zinc-800
+                    bg-white/80 dark:bg-zinc-950/70
                     backdrop-blur-xl
                     p-7
                     shadow-lg
@@ -181,11 +179,11 @@ function Skills() {
                         key={skill}
                         className="
                           px-4 py-2 rounded-xl
-                          border border-slate-200 dark:border-slate-700
-                          bg-slate-100 dark:bg-slate-800
+                          border border-zinc-200 dark:border-zinc-700
+                          bg-zinc-100 dark:bg-zinc-800
 
                           text-sm font-medium
-                          text-slate-700 dark:text-slate-300
+                          text-zinc-700 dark:text-zinc-300
 
                           group-hover:border-blue-500/30
                           group-hover:text-blue-500

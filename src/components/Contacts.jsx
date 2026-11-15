@@ -41,7 +41,7 @@ function Contact() {
         className="
           relative overflow-hidden
           px-6 md:px-10 py-24
-          bg-slate-50 dark:bg-slate-950
+          bg-zinc-50 dark:bg-zinc-950
           transition-colors duration-300
         "
       >
@@ -59,15 +59,15 @@ function Contact() {
         <div className="relative z-10 max-w-7xl mx-auto">
           
           {/* HEADER */}
-          <div className="mb-16">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
             <p className="uppercase tracking-[0.25em] text-blue-500 text-sm font-semibold mb-4">
               Let’s Connect
             </p>
 
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight max-w-4xl">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
               Open to engineering opportunities,
               collaboration, and conversations
-              around automation, cloud, and data systems.
+              around automation, cloud, and quality engineering.
             </h2>
           </div>
 
@@ -82,8 +82,8 @@ function Contact() {
               viewport={{ once: true }}
               className="
                 rounded-3xl
-                border border-slate-200 dark:border-slate-800
-                bg-white/80 dark:bg-slate-900/70
+                border border-zinc-200 dark:border-zinc-800
+                bg-white/80 dark:bg-zinc-900/70
                 backdrop-blur-xl
                 p-8 md:p-10
                 shadow-xl
@@ -109,22 +109,22 @@ function Contact() {
                     Contact Me
                   </h3>
 
-                  <p className="text-slate-500 dark:text-slate-400">
+                  <p className="text-zinc-500 dark:text-zinc-400">
                     Engineering-focused collaborations welcome.
                   </p>
                 </div>
               </div>
 
-              <p className="text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+              <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
                 I’m always interested in discussing
                 software engineering, automation frameworks,
-                CI/CD systems, cloud workflows, and modern
+                CI/CD systems, test infrastructure, and modern
                 quality engineering practices.
               </p>
 
-              <p className="mt-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+              <p className="mt-6 text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
                 Whether it’s an SDET opportunity,
-                data engineering role,
+                automation engineering role,
                 collaboration,
                 or technical discussion —
                 feel free to reach out.
@@ -173,8 +173,8 @@ function Contact() {
                     className="
                       group
                       rounded-3xl
-                      border border-slate-200 dark:border-slate-800
-                      bg-white/80 dark:bg-slate-900/70
+                      border border-zinc-200 dark:border-zinc-800
+                      bg-white/80 dark:bg-zinc-900/70
                       backdrop-blur-xl
                       p-7
                       shadow-lg
@@ -204,7 +204,7 @@ function Contact() {
 
                       <ArrowUpRight
                         className="
-                          text-slate-400
+                          text-zinc-400
                           group-hover:text-blue-500
                           group-hover:translate-x-1
                           group-hover:-translate-y-1
@@ -219,7 +219,7 @@ function Contact() {
                         {card.title}
                       </h3>
 
-                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                      <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                         {card.description}
                       </p>
 
@@ -238,6 +238,55 @@ function Contact() {
               })}
             </div>
           </div>
+
+          {/* CLOSING CTA BANNER */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="
+              relative overflow-hidden
+              mt-10
+              rounded-3xl
+              border border-zinc-200 dark:border-zinc-800
+              bg-white/80 dark:bg-zinc-900
+              backdrop-blur-xl
+              shadow-xl
+              p-10 md:p-14
+            "
+          >
+            {/* Glow */}
+            <div className="absolute -top-24 -right-24 w-[320px] h-[320px] bg-blue-500/20 blur-3xl rounded-full pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-[320px] h-[320px] bg-indigo-500/10 blur-3xl rounded-full pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+              <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white leading-tight max-w-xl">
+                Hiring an SDET? Let&apos;s build{" "}
+                <span className="text-blue-500 dark:text-blue-400">reliable systems</span>{" "}
+                together.
+              </h3>
+
+              <a
+                href="mailto:dasguptadhiman5@gmail.com"
+                className="
+                  shrink-0
+                  inline-flex items-center gap-2
+                  px-7 py-4
+                  rounded-2xl
+                  font-semibold
+                  bg-gradient-to-r from-blue-500 to-indigo-500
+                  text-white
+                  shadow-lg
+                  hover:shadow-[0_0_30px_rgba(59,130,246,0.45)]
+                  transition-all duration-300
+                "
+              >
+                <Mail size={18} />
+                Email Me
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Reveal>

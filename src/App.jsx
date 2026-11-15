@@ -7,7 +7,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import PlaywrightProject from "./pages/projects/PlaywrightProject";
 import FlipkartAutomationProject from "./pages/projects/FlipkartAutomationProject";
 import EcommerceApiAutomationProject from "./pages/projects/EcommerceApiAutomationProject";
-import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 
 function App() {
   const location = useLocation();
@@ -22,9 +22,12 @@ function App() {
 
   return (
     <>
-      <ScrollToTop />
-
-      <AnimatePresence mode="wait">
+      <AnimatePresence
+        mode="wait"
+        onExitComplete={() =>
+          window.scrollTo({ top: 0, left: 0, behavior: "instant" })
+        }
+      >
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
 
@@ -49,6 +52,8 @@ function App() {
           />
         </Routes>
       </AnimatePresence>
+
+      <Footer />
     </>
   );
 }

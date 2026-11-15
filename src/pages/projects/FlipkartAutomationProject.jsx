@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import {
   Github,
-  ArrowLeft,
   ShoppingCart,
   Zap,
   Database,
@@ -10,7 +9,9 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import ProjectNavBar from "../../components/ProjectNavBar";
+import PageTransition from "../../components/PageTransition";
+import useSEO from "../../hooks/useSEO";
 
 const metrics = [
   {
@@ -56,37 +57,31 @@ const engineeringHighlights = [
 ];
 
 function FlipkartAutomationProject() {
+  useSEO({
+    title: "Flipkart E-commerce Automation Case Study",
+    description:
+      "How Dhiman Dasgupta built an end-to-end regression automation suite for Flipkart using Selenide and TestNG, with scheduled CI executions and Allure reporting.",
+    path: "/projects/flipkart-automation",
+  });
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+    <>
+      <ProjectNavBar />
+
+      <PageTransition
       className="
         min-h-screen
-        bg-slate-50
-        dark:bg-slate-950
-        text-slate-900
+        bg-zinc-50
+        dark:bg-zinc-950
+        text-zinc-900
         dark:text-white
       "
     >
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
+      <section className="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24">
-          
-          {/* Back button */}
-          <Link
-            to="/"
-            className="
-              inline-flex items-center gap-2
-              text-slate-500 hover:text-blue-500
-              transition mb-10
-            "
-          >
-            <ArrowLeft size={18} />
-            Back to Portfolio
-          </Link>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
@@ -104,7 +99,7 @@ function FlipkartAutomationProject() {
                 </span>
               </h1>
 
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
                 Designed and developed a scalable end-to-end automation
                 framework for Flipkart covering UI regression,
                 backend validation, and CI/CD execution pipelines
@@ -134,7 +129,7 @@ function FlipkartAutomationProject() {
                   className="
                     inline-flex items-center gap-2
                     px-6 py-3 rounded-xl
-                    border border-slate-300 dark:border-slate-700
+                    border border-zinc-300 dark:border-zinc-700
                     hover:border-blue-500
                     transition
                   "
@@ -157,8 +152,8 @@ function FlipkartAutomationProject() {
                     transition={{ delay: index * 0.08 }}
                     className="
                       rounded-3xl
-                      border border-slate-200 dark:border-slate-800
-                      bg-white/80 dark:bg-slate-900/70
+                      border border-zinc-200 dark:border-zinc-800
+                      bg-white/80 dark:bg-zinc-900/70
                       backdrop-blur-xl
                       p-6
                       shadow-lg
@@ -177,7 +172,7 @@ function FlipkartAutomationProject() {
                       {metric.value}
                     </p>
 
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
                       {metric.label}
                     </p>
                   </motion.div>
@@ -206,8 +201,8 @@ function FlipkartAutomationProject() {
         <div
           className="
             rounded-3xl
-            border border-slate-200 dark:border-slate-800
-            bg-white dark:bg-slate-900
+            border border-zinc-200 dark:border-zinc-800
+            bg-white dark:bg-zinc-900
             p-10
             shadow-xl
           "
@@ -226,8 +221,8 @@ function FlipkartAutomationProject() {
                 className="
                   relative
                   rounded-2xl
-                  border border-slate-200 dark:border-slate-700
-                  bg-slate-50 dark:bg-slate-800
+                  border border-zinc-200 dark:border-zinc-700
+                  bg-zinc-50 dark:bg-zinc-800
                   p-6
                   text-center
                   font-medium
@@ -248,8 +243,8 @@ function FlipkartAutomationProject() {
                 w-8 h-8
                 rounded-full
 
-                bg-white dark:bg-slate-900
-                border border-slate-200 dark:border-slate-700
+                bg-white dark:bg-zinc-900
+                border border-zinc-200 dark:border-zinc-700
 
                 text-blue-500
                 shadow-lg
@@ -281,8 +276,8 @@ function FlipkartAutomationProject() {
               key={tech}
               className="
                 px-5 py-3 rounded-2xl
-                border border-slate-200 dark:border-slate-700
-                bg-white dark:bg-slate-900
+                border border-zinc-200 dark:border-zinc-700
+                bg-white dark:bg-zinc-900
                 shadow-sm
                 hover:shadow-lg
                 hover:border-blue-500
@@ -313,8 +308,8 @@ function FlipkartAutomationProject() {
               key={item}
               className="
                 rounded-3xl
-                border border-slate-200 dark:border-slate-800
-                bg-white dark:bg-slate-900
+                border border-zinc-200 dark:border-zinc-800
+                bg-white dark:bg-zinc-900
                 p-6
                 flex items-start gap-4
                 shadow-sm
@@ -327,7 +322,7 @@ function FlipkartAutomationProject() {
                 size={20}
               />
 
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
                 {item}
               </p>
             </div>
@@ -350,8 +345,8 @@ function FlipkartAutomationProject() {
         <div
           className="
             rounded-3xl
-            border border-slate-200 dark:border-slate-800
-            bg-white dark:bg-slate-900
+            border border-zinc-200 dark:border-zinc-800
+            bg-white dark:bg-zinc-900
             p-10
             shadow-xl
           "
@@ -368,8 +363,8 @@ function FlipkartAutomationProject() {
                 className="
                   relative
                   rounded-2xl
-                  border border-slate-200 dark:border-slate-700
-                  bg-slate-50 dark:bg-slate-800
+                  border border-zinc-200 dark:border-zinc-700
+                  bg-zinc-50 dark:bg-zinc-800
                   p-6
                   text-center
                   font-medium
@@ -406,7 +401,7 @@ function FlipkartAutomationProject() {
 
         <div className="grid md:grid-cols-2 gap-8">
           
-          <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg">
+          <div className="rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg">
             <img
               src="/projects/flipkart/allure-report.png"
               alt="Allure Report"
@@ -418,14 +413,14 @@ function FlipkartAutomationProject() {
                 Allure Dashboard
               </h3>
 
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-zinc-600 dark:text-zinc-400">
                 Rich reporting with pass/fail trends,
                 execution metrics, and debugging insights.
               </p>
             </div>
           </div>
 
-          <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg">
+          <div className="rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg">
             <img
               src="/projects/flipkart/github-actions.png"
               alt="GitHub Actions"
@@ -437,7 +432,7 @@ function FlipkartAutomationProject() {
                 CI Pipeline
               </h3>
 
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-zinc-600 dark:text-zinc-400">
                 Automated regression execution with scheduled workflows
                 and artifact retention.
               </p>
@@ -446,7 +441,8 @@ function FlipkartAutomationProject() {
 
         </div>
       </section>
-    </motion.div>
+      </PageTransition>
+    </>
   );
 }
 

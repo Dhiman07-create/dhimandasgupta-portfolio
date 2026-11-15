@@ -10,6 +10,8 @@ const projects = [
   {
     title: "Playwright Automation Framework",
     icon: "🎭",
+    category: "UI + API Automation",
+    image: "/projects/playwright/allure-report.png",
     description:
       "Enterprise-grade Playwright framework supporting scalable UI + API automation with TypeScript and CI/CD integration.",
     stack: ["Playwright", "TypeScript", "CI/CD", "API Testing"],
@@ -27,6 +29,8 @@ const projects = [
   {
     title: "Flipkart E-commerce Automation",
     icon: "🛒",
+    category: "E-commerce Regression Suite",
+    image: "/projects/flipkart/allure-report.png",
     description:
       "End-to-end regression automation suite for Flipkart using Selenide and TestNG with scheduled executions and reporting.",
     stack: ["Java", "Selenide", "TestNG", "GitHub Actions"],
@@ -44,6 +48,8 @@ const projects = [
   {
     title: "E-commerce API Automation",
     icon: "⚙️",
+    category: "API Test Framework",
+    image: "/projects/api/allure-report.png",
     description:
       "REST Assured API framework with schema validation, reusable utilities, and backend consistency verification.",
     stack: ["REST Assured", "Java", "API Testing", "JSON Schema"],
@@ -67,12 +73,12 @@ function Projects() {
         className="
           relative
           px-6 md:px-10 py-24
-          bg-slate-100 dark:bg-slate-900
+          bg-zinc-100 dark:bg-zinc-950
           overflow-hidden
         "
       >
         {/* Section Header */}
-        <div className="max-w-6xl mx-auto mb-14">
+        <div className="max-w-6xl mx-auto mb-14 text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-blue-500 font-semibold mb-3">
             Engineering Showcase
           </p>
@@ -81,7 +87,7 @@ function Projects() {
             Featured Projects
           </h2>
 
-          <p className="mt-4 text-slate-600 dark:text-slate-400 max-w-2xl">
+          <p className="mt-4 text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
             Scalable automation systems, CI/CD pipelines, API frameworks,
             and engineering-focused projects built with reliability,
             observability, and performance in mind.
@@ -97,114 +103,153 @@ function Projects() {
                 group
                 relative
                 rounded-3xl
-                border border-slate-200 dark:border-slate-700
-                bg-white/70 dark:bg-slate-800/60
+                border border-zinc-200 dark:border-zinc-700
+                bg-white/70 dark:bg-zinc-900
                 backdrop-blur-xl
-                p-7
-                transition-all duration-500
-                hover:-translate-y-2
+                transition-shadow duration-500
                 hover:shadow-[0_20px_60px_rgba(59,130,246,0.18)]
                 overflow-hidden
               "
             >
-              {/* Glow Effect */}
-              <div
-                className="
-                  absolute inset-0 opacity-0
-                  group-hover:opacity-100
-                  transition duration-500
-                  bg-gradient-to-br
-                  from-blue-500/5
-                  via-indigo-500/5
-                  to-transparent
-                "
-              />
+              {/* Preview mockup */}
+              <div className="relative bg-zinc-950">
+                {/* Browser chrome */}
+                <div className="flex items-center gap-1.5 px-4 py-3 border-b border-zinc-800">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+                </div>
 
-              {/* Status */}
-              <div className="flex items-center gap-2 mb-5 relative z-10">
-                <FaCircle className="text-green-500 text-[10px] animate-pulse" />
-
-                <span className="text-xs tracking-widest text-green-500 font-semibold">
-                  {project.status}
-                </span>
+                {/* Screenshot */}
+                <div className="relative h-48 md:h-56 overflow-hidden bg-zinc-950">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className="
+                      w-full h-full
+                      object-cover object-top
+                      opacity-90
+                      group-hover:opacity-100
+                      transition-opacity duration-500
+                    "
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/10 to-transparent" />
+                </div>
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold mb-4 relative z-10">
-                {project.icon} {project.title}
-              </h3>
+              <div className="relative p-7">
+                {/* Glow Effect */}
+                <div
+                  className="
+                    absolute inset-0 opacity-0
+                    group-hover:opacity-100
+                    transition duration-500
+                    bg-gradient-to-br
+                    from-blue-500/5
+                    via-indigo-500/5
+                    to-transparent
+                  "
+                />
 
-              {/* Description */}
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 relative z-10">
-                {project.description}
-              </p>
-
-              {/* Stack Pills */}
-              <div className="flex flex-wrap gap-2 mb-6 relative z-10">
-                {project.stack.map((tech, idx) => (
+                {/* Status + Category */}
+                <div className="flex items-center justify-between flex-wrap gap-2 mb-5 relative z-10">
                   <span
-                    key={idx}
                     className="
-                      px-3 py-1
-                      rounded-full
-                      text-xs
-                      font-medium
-                      bg-blue-500/10
-                      text-blue-500
-                      border border-blue-500/20
+                      px-3 py-1 rounded-full
+                      text-xs font-medium
+                      border border-zinc-300 dark:border-zinc-700
+                      text-zinc-600 dark:text-zinc-300
                     "
                   >
-                    {tech}
+                    {project.category}
                   </span>
-                ))}
-              </div>
 
-              {/* Metrics */}
-              <div className="space-y-2 mb-8 relative z-10">
-                {project.metrics.map((metric, idx) => (
-                  <div
-                    key={idx}
+                  <div className="flex items-center gap-2">
+                    <FaCircle className="text-green-500 text-[10px] animate-pulse" />
+
+                    <span className="text-xs tracking-widest text-green-500 font-semibold">
+                      {project.status}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold mb-4 relative z-10">
+                  {project.icon} {project.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 relative z-10">
+                  {project.description}
+                </p>
+
+                {/* Stack Pills */}
+                <div className="flex flex-wrap gap-2 mb-6 relative z-10">
+                  {project.stack.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="
+                        px-3 py-1
+                        rounded-full
+                        text-xs
+                        font-medium
+                        bg-blue-500/10
+                        text-blue-500
+                        border border-blue-500/20
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Metrics */}
+                <div className="space-y-2 mb-8 relative z-10">
+                  {project.metrics.map((metric, idx) => (
+                    <div
+                      key={idx}
+                      className="
+                        flex items-center gap-2
+                        text-sm text-zinc-600 dark:text-zinc-400
+                      "
+                    >
+                      <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                      {metric}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center justify-between relative z-10">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
                     className="
                       flex items-center gap-2
-                      text-sm text-slate-600 dark:text-slate-400
+                      text-zinc-700 dark:text-zinc-300
+                      hover:text-blue-500
+                      transition
                     "
                   >
-                    <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                    {metric}
-                  </div>
-                ))}
-              </div>
+                    <FaGithub />
+                    GitHub
+                  </a>
 
-              {/* Actions */}
-              <div className="flex items-center justify-between relative z-10">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="
-                    flex items-center gap-2
-                    text-slate-700 dark:text-slate-300
-                    hover:text-blue-500
-                    transition
-                  "
-                >
-                  <FaGithub />
-                  GitHub
-                </a>
-
-                <Link
-                  to={project.details}
-                  className="
-                    flex items-center gap-2
-                    text-blue-500
-                    hover:gap-3
-                    transition-all
-                    font-medium
-                  "
-                >
-                  Case Study
-                  <FaArrowRight />
-                </Link>
+                  <Link
+                    to={project.details}
+                    className="
+                      flex items-center gap-2
+                      text-blue-500
+                      hover:gap-3
+                      transition-all
+                      font-medium
+                    "
+                  >
+                    Case Study
+                    <FaArrowRight />
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

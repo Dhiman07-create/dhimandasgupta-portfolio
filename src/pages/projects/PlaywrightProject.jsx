@@ -1,4 +1,6 @@
-import Reveal from "../../components/Reveal";
+import PageTransition from "../../components/PageTransition";
+import ProjectNavBar from "../../components/ProjectNavBar";
+import useSEO from "../../hooks/useSEO";
 import {
   FaGithub,
   FaCodeBranch,
@@ -11,7 +13,6 @@ import {
 } from "react-icons/fa";
 import {
   Github,
-  ArrowLeft,
   ShoppingCart,
   Zap,
   Database,
@@ -19,8 +20,6 @@ import {
   Workflow,
   CheckCircle2,
 } from "lucide-react";
-
-import { Link } from "react-router-dom";
 
 const metrics = [
   {
@@ -87,28 +86,25 @@ const problemsSolved = [
 ];
 
 function PlaywrightProject() {
+  useSEO({
+    title: "Playwright Automation Framework Case Study",
+    description:
+      "How Dhiman Dasgupta built an enterprise-grade Playwright + TypeScript framework for scalable UI and API automation with CI/CD integration, parallel execution, and resilient locators.",
+    path: "/projects/playwright-automation",
+  });
+
   return (
-    <Reveal>
-      <section className="bg-slate-100 dark:bg-slate-900 min-h-screen transition-colors duration-300">
+    <>
+      <ProjectNavBar />
+
+      <PageTransition>
+      <section className="bg-zinc-100 dark:bg-zinc-900 min-h-screen transition-colors duration-300">
 
         {/* HERO */}
-        <div className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
+        <div className="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-transparent" />
 
           <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24">
-
-            {/* Back button */}
-            <Link
-              to="/"
-              className="
-                inline-flex items-center gap-2
-                text-slate-500 hover:text-blue-500
-                transition mb-10
-              "
-            >
-              <ArrowLeft size={18} />
-              Back to Portfolio
-            </Link>
 
             <div className="grid lg:grid-cols-2 gap-16 items-center"></div>
 
@@ -132,7 +128,7 @@ function PlaywrightProject() {
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-8 max-w-3xl text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="mt-8 max-w-3xl text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Enterprise-grade UI + API automation framework engineered
               for scalable end-to-end validation pipelines with CI/CD,
               observability, and maintainability at its core.
@@ -164,7 +160,7 @@ function PlaywrightProject() {
                 className="
                   inline-flex items-center gap-3
                   px-6 py-3 rounded-2xl
-                  border border-slate-300 dark:border-slate-700
+                  border border-zinc-300 dark:border-zinc-700
                   hover:border-blue-500
                   hover:text-blue-500
                   transition-all duration-300
@@ -183,8 +179,8 @@ function PlaywrightProject() {
                   key={index}
                   className="
                     rounded-3xl
-                    border border-slate-200 dark:border-slate-700
-                    bg-white/70 dark:bg-slate-800/60
+                    border border-zinc-200 dark:border-zinc-700
+                    bg-white/70 dark:bg-zinc-800/60
                     backdrop-blur-xl
                     p-6
                     hover:-translate-y-1
@@ -196,7 +192,7 @@ function PlaywrightProject() {
                     {metric.value}
                   </p>
 
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
                     {metric.label}
                   </p>
                 </div>
@@ -218,7 +214,7 @@ function PlaywrightProject() {
               Built for Scale, Stability & CI Reliability
             </h2>
 
-            <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
               The framework was designed to support scalable UI and API
               automation workflows while maintaining reliability,
               maintainability, and observability across CI/CD pipelines.
@@ -258,8 +254,8 @@ function PlaywrightProject() {
                 className="
                   relative
                   rounded-3xl
-                  border border-slate-200 dark:border-slate-700
-                  bg-white/70 dark:bg-slate-800/60
+                  border border-zinc-200 dark:border-zinc-700
+                  bg-white/70 dark:bg-zinc-800/60
                   backdrop-blur-xl
                   p-6 text-center
                   hover:shadow-xl
@@ -331,8 +327,8 @@ function PlaywrightProject() {
                 key={index}
                 className="
                   rounded-3xl
-                  border border-slate-200 dark:border-slate-700
-                  bg-white/70 dark:bg-slate-800/60
+                  border border-zinc-200 dark:border-zinc-700
+                  bg-white/70 dark:bg-zinc-800/60
                   backdrop-blur-xl
                   p-8
                   hover:-translate-y-2
@@ -348,7 +344,7 @@ function PlaywrightProject() {
                   {feature.title}
                 </h3>
 
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -382,8 +378,8 @@ function PlaywrightProject() {
                 key={index}
                 className="
                   rounded-3xl
-                  border border-slate-200 dark:border-slate-700
-                  bg-white/70 dark:bg-slate-800/60
+                  border border-zinc-200 dark:border-zinc-700
+                  bg-white/70 dark:bg-zinc-800/60
                   backdrop-blur-xl
                   p-6 text-center
                   relative
@@ -414,9 +410,9 @@ function PlaywrightProject() {
             Architectural Choices
           </h2>
 
-          <div className="overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-700">
+          <div className="overflow-hidden rounded-3xl border border-zinc-200 dark:border-zinc-700">
 
-            <div className="grid grid-cols-2 bg-slate-200/60 dark:bg-slate-800/60 p-5 font-semibold">
+            <div className="grid grid-cols-2 bg-zinc-200/60 dark:bg-zinc-800/60 p-5 font-semibold">
               <div>Decision</div>
               <div>Reason</div>
             </div>
@@ -432,15 +428,15 @@ function PlaywrightProject() {
                 className="
                   grid grid-cols-2
                   p-5
-                  border-t border-slate-200 dark:border-slate-700
-                  bg-white/60 dark:bg-slate-800/40
+                  border-t border-zinc-200 dark:border-zinc-700
+                  bg-white/60 dark:bg-zinc-800/40
                 "
               >
                 <div className="font-medium">
                   {row[0]}
                 </div>
 
-                <div className="text-slate-600 dark:text-slate-400">
+                <div className="text-zinc-600 dark:text-zinc-400">
                   {row[1]}
                 </div>
               </div>
@@ -476,8 +472,8 @@ function PlaywrightProject() {
                 className="
                   flex items-center gap-4
                   rounded-2xl
-                  border border-slate-200 dark:border-slate-700
-                  bg-white/70 dark:bg-slate-800/60
+                  border border-zinc-200 dark:border-zinc-700
+                  bg-white/70 dark:bg-zinc-800/60
                   backdrop-blur-xl
                   p-5
                 "
@@ -507,7 +503,7 @@ function PlaywrightProject() {
 
         <div className="grid md:grid-cols-2 gap-8">
 
-            <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+            <div className="rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800">
             <img
                 src="/projects/playwright/allure-report.png"
                 alt="Allure Report"
@@ -519,14 +515,14 @@ function PlaywrightProject() {
                 Allure Reporting Dashboard
                 </h3>
 
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-zinc-600 dark:text-zinc-400">
                 Automated reporting with execution insights,
                 failure analytics, and test trends.
                 </p>
             </div>
             </div>
 
-            <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+            <div className="rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800">
             <img
                 src="/projects/playwright/github-actions.png"
                 alt="GitHub Actions"
@@ -538,7 +534,7 @@ function PlaywrightProject() {
                 GitHub Actions Pipeline
                 </h3>
 
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-zinc-600 dark:text-zinc-400">
                 Fully automated CI execution with artifact uploads
                 and scheduled regression workflows.
                 </p>
@@ -548,7 +544,8 @@ function PlaywrightProject() {
         </div>
         </div>
       </section>
-    </Reveal>
+      </PageTransition>
+    </>
   );
 }
 
